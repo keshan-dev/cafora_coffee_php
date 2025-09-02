@@ -6,9 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-<h1>web</h1>
-<h1>testing</h1>
-<h1>Testing 2</h1>
-<h1>project</h1>
+    <div class="outer">
+        <div class="inner">
+            <h1>Testing authentication</h1>
+        </div>
+    </div>
 </body>
 </html>
