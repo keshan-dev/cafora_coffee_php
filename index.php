@@ -6,9 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <div class="home">
-        <h1>Home Page Welcome</h1>
-    </div> -->
-
+<h1>web</h1>
 </body>
 </html>
