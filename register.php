@@ -21,7 +21,11 @@
             <input type="text" name="lname" id="lname" placeholder="Last name" required>
             <label for="lname">Last Name</label>
         </div>
-    
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <label for="Email">Email</label>
+            </div>
 
 
 </body>
