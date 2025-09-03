@@ -8,7 +8,7 @@
 <body>
     <div class="outer">
         <div class="inner">
-            <h1>Testing authentication</h1>
+            <h1>Testing authentication.</h1>
         </div>
     </div>
 </body>
