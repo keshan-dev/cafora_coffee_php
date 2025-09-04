@@ -1,32 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register and login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    
-</head>
-<body>
-    <div class="container" id="signup"></div>
-    <h1 class="form-title">Register</h1>
-    <form method="post" action="">
-        <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text" name="fname" id="fname" placeholder="First Name" required>
-            <label for="fname">First Name</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text" name="lname" id="lname" placeholder="Last name" required>
-            <label for="lname">Last Name</label>
-        </div>
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" name="email" id="email" placeholder="Email" required>
-                <label for="Email">Email</label>
-            </div>
+<?php
+session_start();
 
+// include the database connection file from includes folder
+include 'includes/database_connection.php';
 
-</body>
-</html>
+// ================= SIGN UP =================
+if (isset($_POST['signUp'])) {
+    $UserName = $_POST['fName'];
+    $email    = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Hash password (use md5 only if required, but password_hash is safer)
+    $password = md5($password);
+
+    // Check if email already exists
+    $checkEmail = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($checkEmail);
+
+    if ($result->num_rows > 0) {
+        echo "Email Address Already Exists!";
+    } else {
+        $insertQuery = "INSERT INTO users(UserName, email, password) 
+                        VALUES ('$UserName','$email','$password')";
+        if ($conn->query($insertQuery) === TRUE) {
+            header("Location: index.php");
+            exit();
+        } else {
+            echo "Error: " . $conn->error;
+        }
+    }
+}
+
+// ================= SIGN IN =================
+if (isset($_POST['signIn'])) {
+    $email    = $_POST['email'];
+    $password = $_POST['password'];
+    $password = md5($password);
+
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION['email'] = $row['email'];
+        header("Location: homepage.php");
+        exit();
+    } else {
+        echo "Not Found, Incorrect Email or Password";
+    }
+}
+?>
