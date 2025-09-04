@@ -6,29 +6,29 @@
 }
 
 body {
-    background: #F1F0EE; /* main background */
-    color: #30261C; /* default text color */
+    background: #F1F0EE; 
+    color: #30261C; 
 }
 
 nav, footer {
-    color: #FFFFFF; /* nav bar & footer text */
+    color: #FFFFFF; 
 }
 
 .hero-section {
-    color: #FFFFFF; /* hero section text */
+    color: #FFFFFF; 
 }
 
 .hero-section button {
-    background-color: #FFFFFF; /* hero button background */
-    color: #FFFFFF; /* hero button text */
+    background-color: #FFFFFF; 
+    color: #FFFFFF; 
 }
 
 .background-section {
-    background-color: #E2D9C8; /* section background */
+    background-color: #E2D9C8; 
 }
 
 .container {
-    background: rgba(226, 217, 200, 0.28); /* card background with 28% opacity */
+    background: rgba(226, 217, 200, 0.28); 
     width: 450px;
     padding: 1.5rem;
     margin: 50px auto;
@@ -120,8 +120,8 @@ input:not(:placeholder-shown) ~ label {
     outline: none;
     border: none;
     width: 100%;
-    background: #2A0000; /* card button color */
-    color: #FFFFFF; /* button text color */
+    background: #2A0000;
+    color: #FFFFFF; 
     cursor: pointer;
     transition: 0.9s;
 }
@@ -152,7 +152,8 @@ input:not(:placeholder-shown) ~ label {
 }
 
 .icons i:hover {
-    background: rgb(251, 249, 249);
+    background: rgb(31, 31, 31);
+    color: white;
     font-size: 1.6rem;
     border: 2px solid rgb(125, 125, 235);
 }
