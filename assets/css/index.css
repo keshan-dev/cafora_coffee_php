@@ -632,14 +632,6 @@ body {
     background-repeat: no-repeat;
 }
 
-.morning-roast {
-    background-image: url("/cafora_coffee_php/assets/images/morning-roast.jpg"); /* your image path */
-    background-size: cover;   
-    background-position: center;
-    background-repeat: no-repeat;
-}
-    
-
 .single-origin {
     background-image: url("/cafora_coffee_php/assets/images/single-origin.jpg"); /* your image path */
     background-size: cover;   
@@ -649,6 +641,28 @@ body {
 
 .iced-latte{
     background-image: url("/cafora_coffee_php/assets/images/Iced-Latte.jpg"); /* your image path */
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Cakes product images*/
+.caramel-torte {
+    background-image: url("/cafora_coffee_php/assets/images/Caramel torte.jpg"); /* your image path */
+    background-size: cover;  
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.tropical-dream {
+    background-image: url("/cafora_coffee_php/assets/images/Tropical Dream.jpg"); /* your image path */
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cheesecake{
+    background-image: url("/cafora_coffee_php/assets/images/Cheesecake.jpg"); /* your image path */
     background-size: cover;   
     background-position: center;
     background-repeat: no-repeat;

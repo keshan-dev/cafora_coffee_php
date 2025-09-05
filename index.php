@@ -60,20 +60,6 @@
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image morning-roast">
-                        <h3 class="fs-32 product-title">Morning Roast</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Sunrise Morning Roast</h4>
-                        <p class="product-description">A smooth and balanced medium roast to start your day right.</p>
-                        <div class="product-footer">
-                            <span class="price">$16.50</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
                     <div class="product-image single-origin">
                         <h3 class="fs-32 product-title">Single Origin</h3>
                     </div>
@@ -96,6 +82,59 @@
                         <p class="product-description">Bright and fruity with floral notes. A truly unique experience.</p>
                         <div class="product-footer">
                             <span class="price">$22.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bestsellers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="fs-43">Our Signature Desserts</h2>
+                <p class="section-subtitle">Discover our most loved cakes and timeless treats.</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image caramel-torte">
+                        <h3 class="fs-32 product-title">Caramel torte</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Golden Caramel Torte</h4>
+                        <p class="product-description">Layers of caramel cream with a crispy crunch in every bite.</p>
+                        <div class="product-footer">
+                            <span class="price">$10.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image tropical-dream">
+                        <h3 class="fs-32 product-title">Tropical  Dream</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Tropical Coconut Dream</h4>
+                        <p class="product-description">Moist coconut layers with a creamy coconut frosting. A true island treat.</p>
+                        <div class="product-footer">
+                            <span class="price">$12.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image cheesecake">
+                        <h3 class="fs-32 product-title">Cheesecake</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Berry Bliss Cheesecake</h4>
+                        <p class="product-description">Creamy cheesecake with fresh berries for a refreshing treat.</p>
+                        <div class="product-footer">
+                            <span class="price">$15.00</span>
                             <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
                     </div>
