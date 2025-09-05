@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +17,15 @@
   <div class="container" id="signup">
     <h1 class="form-title">Register</h1>
     <form method="post" action="register.php">
-      <div class="input-group"> 
+      <div class="input-group">
         <i class="fas fa-user"></i>
-        <input type="text" name="fName" id="fName" placeholder="Name" required>
-        <label for="fName">Name</label>
+        <input type="text" name="name" id="Name" placeholder="Name" required>
+        <label for="Name">Name</label>
       </div>
 
       <div class="input-group">
         <i class="fas fa-envelope"></i>
-        <input type="email" name="email" id="emailUp" placeholder="Email" required>
+        <input type="email" name="email" id="emailUp" placeholder="email" required>
         <label for="emailUp">Email</label>
       </div>
 
@@ -54,13 +57,13 @@
       <div class="input-group">
         <i class="fas fa-envelope"></i>
         <input type="email" name="email" id="emailIn" placeholder="Email" required>
-        <label for="emailIn">Email</label>
+        <label for="email">Email</label>
       </div>
 
       <div class="input-group">
         <i class="fas fa-lock"></i>
         <input type="password" name="password" id="passwordIn" placeholder="Password" required>
-        <label for="passwordIn">Password</label>
+        <label for="password">Password</label>
       </div>
 
       <p class="recover"><a href="#">Recover Password</a></p>
