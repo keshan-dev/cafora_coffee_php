@@ -41,7 +41,7 @@ include 'includes/database_connection.php';
 
      if ($row && password_verify($password, $row['password'])) {
          $_SESSION['email'] = $row['email'];
-         header("Location: index.php");
+         header("Location: ../includes/auth.php");
          exit();
      } else {
          echo "Not Found, Incorrect Email or Password";
