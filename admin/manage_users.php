@@ -1,5 +1,5 @@
 <?php
-require 'includes/database_connection.php';
+require '../includes/database_connection.php';
 
 // Add User
 if(isset($_POST['add'])){
@@ -36,7 +36,7 @@ $users=$pdo->query("SELECT * FROM users ORDER BY created_at DESC")->fetchAll(PDO
 <meta charset="UTF-8">
 <title>Manage Users</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body>
 <div class="container">

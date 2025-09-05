@@ -1,5 +1,5 @@
-<!-- admin dashboard goes here --><?php
-require 'includes/database_connection.php';
+<?php
+require '../includes/database_connection.php';
 
 // ===== User Stats =====
 $totalUsers = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
@@ -73,7 +73,7 @@ $topItems = $pdo->query("
 <meta charset="UTF-8">
 <title>Admin Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
