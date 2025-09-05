@@ -626,14 +626,14 @@ body {
 
 /* Coffee product images*/
 .espresso-blend {
-    background-image: url("/test/aroma_luxe_coffee_php/assets/images/espresso.jpg"); /* your image path */
+    background-image: url("/cafora_coffee_php/assets/images/espresso.jpg"); /* your image path */
     background-size: cover;  
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .morning-roast {
-    background-image: url("/test/aroma_luxe_coffee_php/assets/images/morning-roast.jpg"); /* your image path */
+    background-image: url("/cafora_coffee_php/assets/images/morning-roast.jpg"); /* your image path */
     background-size: cover;   
     background-position: center;
     background-repeat: no-repeat;
@@ -641,14 +641,14 @@ body {
     
 
 .single-origin {
-    background-image: url("/test/aroma_luxe_coffee_php/assets/images/single-origin.jpg"); /* your image path */
+    background-image: url("/cafora_coffee_php/assets/images/single-origin.jpg"); /* your image path */
     background-size: cover;   
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .iced-latte{
-    background-image: url("/test/aroma_luxe_coffee_php/assets/images/Iced-Latte.jpg"); /* your image path */
+    background-image: url("/cafora_coffee_php/assets/images/Iced-Latte.jpg"); /* your image path */
     background-size: cover;   
     background-position: center;
     background-repeat: no-repeat;
@@ -873,42 +873,42 @@ body {
 
 /* Coffee shop interior images */
 .cozy-corner {
-  background: url("/test/aroma_luxe_coffee_php/assets/images/cozy-corner.jpg");
+  background: url("/cafora_coffee_php/assets/images/cozy-corner.jpg");
   background-size: cover;            
   background-position: center;       
   background-repeat: no-repeat;      
 }
 
 .barista-station {
-    background: url("/test/aroma_luxe_coffee_php/assets/images/barista-station.jpg"); 
+    background: url("/cafora_coffee_php/assets/images/barista-station.jpg"); 
   background-size: cover;           
   background-position: center;      
   background-repeat: no-repeat;     
 }
 
 .reading-nook {
-    background: url("/test/aroma_luxe_coffee_php/assets/images/reading-nook.jpg"); 
+    background: url("/cafora_coffee_php/assets/images/reading-nook.jpg"); 
   background-size: cover;           
   background-position: center;     
   background-repeat: no-repeat;      
 }
 
 .communal-table {
-    background: url("/test/aroma_luxe_coffee_php/assets/images/communal-table.jpg"); 
+    background: url("/cafora_coffee_php/assets/images/communal-table.jpg"); 
   background-size: cover;          
   background-position: center;     
   background-repeat: no-repeat;    
 }
 
 .window-view {
-    background: url("/test/aroma_luxe_coffee_php/assets/images/window-view.jpg");
+    background: url("/cafora_coffee_php/assets/images/window-view.jpg");
   background-size: cover;          
   background-position: center;    
   background-repeat: no-repeat;  
 }
 
 .cafe-atmosphere {
-background: url("/test/aroma_luxe_coffee_php/assets/images/cafe-atmosphere.jpg"); 
+background: url("/cafora_coffee_php/assets/images/cafe-atmosphere.jpg"); 
   background-size: cover;         
   background-position: center;      
   background-repeat: no-repeat;  
