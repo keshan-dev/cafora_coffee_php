@@ -1,4 +1,4 @@
-<!-- database connection configure -->
+
 <?php
 $dsn = "mysql:host=localhost;dbname=coffee_shop";
 $dbusername = "root";
