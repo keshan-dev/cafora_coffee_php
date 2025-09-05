@@ -37,15 +37,24 @@ include 'includes/database_connection.php';
 
      $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
      $stmt->execute([$email]);
-     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-     if ($row && password_verify($password, $row['password'])) {
-         $_SESSION['email'] = $row['email'];
-         header("Location: ../includes/auth.php");
-         exit();
-     } else {
-         echo "Not Found, Incorrect Email or Password";
-     }
+     if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['role'] = $user['role'];
+
+         // redirect by role
+        if ($user['role'] === 'admin') {
+            header("Location: admin/admin_dashboard.php");
+        } else {
+            header("Location: user.php");
+        }
+        exit;
+    } else {
+        header("Location: login.php");
+    }
+
+    
  }
 ?>
 
