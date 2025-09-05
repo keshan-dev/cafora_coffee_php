@@ -126,7 +126,7 @@
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.95);
+        background-color: #30261C;
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -186,7 +186,7 @@
 
 /* Scrolled navbar background  */
 .navbar.scrolled {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color:#30261C;
     backdrop-filter: blur(10px);
 }
 
@@ -443,4 +443,902 @@ body {
 /* footer item animations */
 * {
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* General Body Styles */
+body {
+    margin: 0;
+    background-color: #F1F0EE; 
+    box-sizing: border-box;
+}
+
+/* Hero Section Styles */
+.hero {
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden; 
+    background-image: url('/cafora_coffee_php/assets/images/banner.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    padding: 0 6%;
+}
+
+/* Dark overlay hero*/
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Content Container */
+.hero-content {
+    color: #ffffff;
+    max-width: 45%;
+    position: relative;
+    z-index: 2;
+}
+
+/* "WELCOME" text */
+.hero-content .subtitle {
+    font-size: 0.9rem; 
+    line-height: 1.5;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+/* Main Headline */
+.hero-content h1 {
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+}
+
+/* Description Text */
+.hero-content .description {
+    font-weight: 400; 
+    margin-bottom: 2.5rem;
+    color: #d1d1d1; 
+    max-width: 450px;
+}
+
+/* "Order Now" Button */
+.cta-button {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #f5f0e9;
+    color: #1a1512;
+    border: 1px solid #f5f0e9;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: #f5f0e9;
+}
+
+
+/*Responsive Design*/
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3.5rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-position: 70% center;
+        min-height: 80vh;
+        justify-content: center;
+        text-align: center;
+        padding: 0 10%;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero-content .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-content h1 {
+        font-size: 3.167rem; /* Using a size from your font.css */
+    }
+}
+
+/* Bestsellers Section Styles */
+.bestsellers-section {
+    padding: 80px 0;
+    background-color: #f8f6f3;
+}
+
+.container {
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    color: #2c1810;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    color: #6b5d52;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    align-items: start;
+}
+
+.product-card {
+    background: #E2D9C833 28%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(44, 24, 16, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(44, 24, 16, 0.15);
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-title {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    position: relative;
+}
+
+/* Coffee product images*/
+.espresso-blend {
+    background-image: url("/test/aroma_luxe_coffee_php/assets/images/espresso.jpg"); /* your image path */
+    background-size: cover;  
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.morning-roast {
+    background-image: url("/test/aroma_luxe_coffee_php/assets/images/morning-roast.jpg"); /* your image path */
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+}
+    
+
+.single-origin {
+    background-image: url("/test/aroma_luxe_coffee_php/assets/images/single-origin.jpg"); /* your image path */
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.iced-latte{
+    background-image: url("/test/aroma_luxe_coffee_php/assets/images/Iced-Latte.jpg"); /* your image path */
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.product-info {
+    padding: 32px 28px;
+}
+
+.product-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c1810;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.product-description {
+    color: #6b5d52;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c1810;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(135deg, #2c0303 0%, #2A0000 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(107, 68, 35, 0.2);
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #400000 0%, #2A0000 100%);
+    color: #fff;
+    border-color: #400000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(42, 0, 0, 0.3);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bestsellers-section {
+        padding: 60px 0;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .product-title {
+        font-size: 1.5rem;
+    }
+    
+    .product-info {
+        padding: 24px 20px;
+    }
+    
+    .product-footer {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+    
+    .add-to-cart-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* Our Interior Moments Section */
+.interior-moments-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f6f3 0%, #f0ede8 100%);
+}
+
+.container {
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    color: #2c1810;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    color: #6b5d52;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+.moments-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 300px);
+    gap: 20px;
+    height: auto;
+}
+
+/* Grid Layout interior */
+.moment-card:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.moment-card:nth-child(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+.moment-card:nth-child(3) {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
+
+.moment-card:nth-child(4) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.moment-card:nth-child(5) {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+
+.moment-card:nth-child(6) {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+}
+
+.moment-card {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(44, 24, 16, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.moment-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(44, 24, 16, 0.15);
+}
+
+.moment-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Coffee shop interior images */
+.cozy-corner {
+  background: url("/test/aroma_luxe_coffee_php/assets/images/cozy-corner.jpg");
+  background-size: cover;            
+  background-position: center;       
+  background-repeat: no-repeat;      
+}
+
+.barista-station {
+    background: url("/test/aroma_luxe_coffee_php/assets/images/barista-station.jpg"); 
+  background-size: cover;           
+  background-position: center;      
+  background-repeat: no-repeat;     
+}
+
+.reading-nook {
+    background: url("/test/aroma_luxe_coffee_php/assets/images/reading-nook.jpg"); 
+  background-size: cover;           
+  background-position: center;     
+  background-repeat: no-repeat;      
+}
+
+.communal-table {
+    background: url("/test/aroma_luxe_coffee_php/assets/images/communal-table.jpg"); 
+  background-size: cover;          
+  background-position: center;     
+  background-repeat: no-repeat;    
+}
+
+.window-view {
+    background: url("/test/aroma_luxe_coffee_php/assets/images/window-view.jpg");
+  background-size: cover;          
+  background-position: center;    
+  background-repeat: no-repeat;  
+}
+
+.cafe-atmosphere {
+background: url("/test/aroma_luxe_coffee_php/assets/images/cafe-atmosphere.jpg"); 
+  background-size: cover;         
+  background-position: center;      
+  background-repeat: no-repeat;  
+}
+
+.image-overlay {
+    background: linear-gradient(180deg, 
+        rgba(44, 24, 16, 0) 0%, 
+        rgba(44, 24, 16, 0.7) 70%, 
+        rgba(44, 24, 16, 0.9) 100%);
+    width: 100%;
+    padding: 40px 30px 30px 30px;
+    color: white;
+}
+
+.moment-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.moment-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.large-card .image-overlay {
+    padding: 50px 40px 40px 40px;
+}
+
+.large-card .moment-description {
+    font-size: 1.1rem;
+}
+
+/* Hover Effects */
+.moment-card:hover .image-overlay {
+    background: linear-gradient(180deg, 
+        rgba(44, 24, 16, 0.1) 0%, 
+        rgba(44, 24, 16, 0.8) 60%, 
+        rgba(44, 24, 16, 0.95) 100%);
+}
+
+.moment-card:hover .moment-title {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .moments-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 280px);
+    }
+    
+    .moment-card:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+    }
+    
+    .moment-card:nth-child(2) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+    
+    .moment-card:nth-child(3) {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+    
+    .moment-card:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    
+    .moment-card:nth-child(5) {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+    
+    .moment-card:nth-child(6) {
+        grid-column: 1 / 4;
+        grid-row: 4 / 5;
+    }
+}
+
+@media (max-width: 1024px) {
+    .interior-moments-section {
+        padding: 80px 0;
+    }
+    
+    .moments-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 250px);
+        gap: 16px;
+    }
+    
+    .moment-card:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+    }
+    
+    .moment-card:nth-child(2) {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    
+    .moment-card:nth-child(3) {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+    
+    .moment-card:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+    
+    .moment-card:nth-child(5) {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+    }
+    
+    .moment-card:nth-child(6) {
+        grid-column: 1 / 3;
+        grid-row: 5 / 6;
+    }
+}
+
+@media (max-width: 768px) {
+    .interior-moments-section {
+        padding: 60px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 50px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .moments-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 300px);
+        gap: 16px;
+    }
+    
+    .moment-card:nth-child(1),
+    .moment-card:nth-child(2),
+    .moment-card:nth-child(3),
+    .moment-card:nth-child(4),
+    .moment-card:nth-child(5),
+    .moment-card:nth-child(6) {
+        grid-column: 1 / 2;
+        grid-row: auto;
+    }
+    
+    .image-overlay {
+        padding: 30px 20px 20px 20px;
+    }
+    
+    .large-card .image-overlay {
+        padding: 30px 20px 20px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .moments-grid {
+        gap: 12px;
+        grid-template-rows: repeat(6, 280px);
+    }
+    
+    .moment-title {
+        font-size: 1.3rem;
+    }
+    
+    .moment-description {
+        font-size: 0.95rem;
+    }
+}
+
+/* Why Choose Coffea Section Styles */
+.why-choose-section {
+    padding: 120px 0;
+    background-color: #F1F0EE;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    color: #2c1810;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    color: #6b5d52;
+    font-size: 1.2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    align-items: start;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: #E2D9C833 28%;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(44, 24, 16, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #6b4423 0%, #4a2c17 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 48px rgba(44, 24, 16, 0.12);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #6b4423 0%, #4a2c17 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 8px 24px rgba(107, 68, 35, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.icon-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #8b5e34 0%, #6b4423 100%);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 32px rgba(107, 68, 35, 0.4);
+}
+
+.feature-card:hover .icon-wrapper::before {
+    opacity: 1;
+}
+
+.feature-title {
+    color: #2c1810;
+    font-weight: 700;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.feature-card:hover .feature-title {
+    color: #6b4423;
+}
+
+.feature-description {
+    color: #6b5d52;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/*  feature card animations */
+.feature-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .features-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .why-choose-section {
+        padding: 100px 0;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+    }
+    
+    .feature-card:nth-child(3) {
+        grid-column: 1 / 3;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .why-choose-section {
+        padding: 80px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    .feature-card:nth-child(3) {
+        grid-column: 1;
+        max-width: none;
+    }
+    
+    .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+    }
+    
+    .feature-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .why-choose-section {
+        padding: 60px 0;
+    }
+    
+    .feature-card {
+        padding: 25px 15px;
+    }
+    
+    .icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .icon-wrapper svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .feature-icon {
+        margin-bottom: 25px;
+    }
+    
+    .feature-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .feature-description {
+        font-size: 1rem;
+    }
 }
