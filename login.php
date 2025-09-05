@@ -16,8 +16,8 @@
     <form method="post" action="register.php">
       <div class="input-group"> 
         <i class="fas fa-user"></i>
-        <input type="text" name="fName" id="fName" placeholder="User Name" required>
-        <label for="fName">User Name</label>
+        <input type="text" name="fName" id="fName" placeholder="Name" required>
+        <label for="fName">Name</label>
       </div>
 
       <div class="input-group">
