@@ -194,3 +194,253 @@
 body {
     padding-top: 70px;
 }
+
+/* Footer Section Styles */
+.footer {
+    background: linear-gradient(135deg, #3d2415 0%, #2c1810 100%);
+    color: #c4a47c;
+    padding: 60px 0 0 0;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo img {
+    max-width: 100px; /* adjust size */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    color: #f8f6f3;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.footer-description {
+    line-height: 1.6;
+    color: #ffffff;
+    max-width: 300px;
+}
+
+/* Contact Section */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #d4b896;
+}
+
+.contact-item svg {
+    flex-shrink: 0;
+    color: #ffffff;
+}
+
+/* Links Section */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links li a:hover {
+    color: #f8f6f3;
+    padding-left: 8px;
+}
+
+.footer-links li a::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: #6b4423;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links li a:hover::before {
+    opacity: 1;
+}
+
+/* Social Section */
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-link {
+    width: 44px;
+    height: 44px;
+    background: rgba(107, 68, 35, 0.2);
+    border: 2px solid rgba(107, 68, 35, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background: #6b4423;
+    border-color: #6b4423;
+    color: #f8f6f3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 68, 35, 0.3);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(107, 68, 35, 0.3);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.copyright {
+    color: white;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .footer-content {
+        grid-template-columns: 1.5fr 1.2fr 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .footer-column:nth-child(1) {
+        grid-column: 1 / 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 0 0 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-column:nth-child(1) {
+        grid-column: 1;
+        text-align: center;
+    }
+    
+    .footer-description {
+        max-width: none;
+        margin: 0 auto;
+    }
+    
+    .contact-info {
+        align-items: center;
+    }
+    
+    .footer-links {
+        align-items: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .footer {
+        padding: 40px 0 0 0;
+    }
+    
+    .footer-content {
+        gap: 30px;
+    }
+    
+    .social-link svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .footer-bottom {
+        padding: 25px 0;
+    }
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+    .footer-column:hover .footer-title {
+        color: #d4b896;
+        transition: color 0.3s ease;
+    }
+}
+
+/* social icon out line */
+.footer-links li a:focus,
+.social-link:focus {
+    outline: 2px solid #6b4423;
+    outline-offset: 2px;
+}
+
+/* footer item animations */
+* {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
