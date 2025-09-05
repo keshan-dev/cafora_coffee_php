@@ -6,7 +6,7 @@ include 'includes/database_connection.php';
 
 // ================= SIGN UP =================
 if (isset($_POST['signUp'])) {
-    $UserName = $_POST['fName'];
+    $name = $_POST['fName'];
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
@@ -14,19 +14,18 @@ if (isset($_POST['signUp'])) {
     $password = md5($password);
 
     // Check if email already exists
-    $checkEmail = "SELECT * FROM users WHERE email='$email'";
-    $result = $conn->query($checkEmail);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->execute([$email]);
 
-    if ($result->num_rows > 0) {
+    if ($stmt->rowCount() > 0) {
         echo "Email Address Already Exists!";
     } else {
-        $insertQuery = "INSERT INTO users(UserName, email, password) 
-                        VALUES ('$UserName','$email','$password')";
-        if ($conn->query($insertQuery) === TRUE) {
+        $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+        if ($stmt->execute([$name, $email, $password])) {
             header("Location: index.php");
             exit();
         } else {
-            echo "Error: " . $conn->error;
+            echo "Error: Could not register user.";
         }
     }
 }
@@ -35,13 +34,12 @@ if (isset($_POST['signUp'])) {
 if (isset($_POST['signIn'])) {
     $email    = $_POST['email'];
     $password = $_POST['password'];
-    $password = md5($password);
 
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-    $result = $conn->query($sql);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->execute([$email]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
+    if ($row && password_verify($password, $row['password'])) {
         $_SESSION['email'] = $row['email'];
         header("Location: homepage.php");
         exit();
@@ -50,3 +48,4 @@ if (isset($_POST['signIn'])) {
     }
 }
 ?>
+
