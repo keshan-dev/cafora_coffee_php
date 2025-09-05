@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="index.php">
+            <a href="../index.php">
                 <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                 <span class="title">Sign Out</span>
             </a>
