@@ -83,6 +83,13 @@ async function updateQuantity(itemId, newQuantity) {
         return;
     }
 
+    // Reset promo discount when quantity changes
+    if (promoDiscount > 0) {
+        promoDiscount = 0;
+        alert('Your cart has changed. Please re-apply your promo code.');
+        document.getElementById('promoCode').value = ''; // Clear the input
+    }
+
     try {
         const res = await fetch('/cafora_coffee_php/includes/update_cart.php', {
             method: 'POST',
@@ -115,6 +122,13 @@ async function updateQuantity(itemId, newQuantity) {
 async function removeItem(itemId) {
     if (!confirm('Are you sure you want to remove this item?')) return;
 
+    // Reset promo discount when an item is removed
+    if (promoDiscount > 0) {
+        promoDiscount = 0;
+        alert('Your cart has changed. Please re-apply your promo code.');
+        document.getElementById('promoCode').value = ''; // Clear the input
+    }
+
     try {
         const res = await fetch('/cafora_coffee_php/includes/remove_from_cart.php', {
             method: 'POST',
@@ -146,6 +160,7 @@ function calculateTotals() {
 
     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
     document.getElementById('taxes').textContent = `$${taxes.toFixed(2)}`;
+    document.getElementById('shipping').textContent = `$${shipping.toFixed(2)}`;
     document.getElementById('total').textContent = `$${total.toFixed(2)}`;
 }
 
@@ -188,27 +203,53 @@ function goBack() {
 // Proceed to Checkout
 // ===========================
 async function proceedToCheckout() {
-    if (cartItems.length === 0) { alert('Cart is empty'); return; }
+    if (cartItems.length === 0) {
+        alert('Your cart is empty.');
+        return;
+    }
 
-    const totalAmount = subtotal + shipping + subtotal*taxRate - promoDiscount;
-    if (!confirm(`Proceed to checkout?\nTotal: $${totalAmount.toFixed(2)}`)) return;
+    // Recalculate all values to ensure they are current
+    const subtotalValue = cartItems.reduce((sum, i) => sum + (parseFloat(i.price) * parseInt(i.quantity)), 0);
+    const taxesValue = subtotalValue * taxRate;
+    const shippingValue = shipping; // From global variable
+    const discountValue = promoDiscount; // From global variable
+    const totalAmount = subtotalValue + shippingValue + taxesValue - discountValue;
+
+    if (!confirm(`Proceed to checkout?\nTotal: $${totalAmount.toFixed(2)}`)) {
+        return;
+    }
 
     try {
-        const res = await fetch('/cafora_coffee_php/users/checkout.php', { method:'POST' });
+        // Send the complete breakdown to the server
+        const res = await fetch('/cafora_coffee_php/users/checkout.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                total: totalAmount,
+                subtotal: subtotalValue,
+                shipping: shippingValue,
+                taxes: taxesValue,
+                discount: discountValue,
+                cartItems: cartItems // Send cart items for server-side validation
+            })
+        });
+
         const data = await res.json();
 
         if (data.success) {
-            alert(`Order placed successfully! Order ID: ${data.order_id}`);
+            alert(`Order placed successfully! Your Order ID is: ${data.order_id}`);
             cartItems = [];
+            promoDiscount = 0; // Reset discount after checkout
+            document.getElementById('promoCode').value = '';
             renderCartItems();
             calculateTotals();
             loadRecentOrders();
         } else {
-            alert(data.message || 'Checkout failed');
+            alert(data.message || 'Checkout failed. Please try again.');
         }
-    } catch(err) {
-        console.error(err);
-        alert('Checkout failed. Try again.');
+    } catch (err) {
+        console.error('Checkout error:', err);
+        alert('A critical error occurred during checkout. Please try again.');
     }
 }
 
@@ -230,14 +271,15 @@ async function loadRecentOrders() {
             <div class="order-card">
                 <h3>Order #${order.order_id} - ${order.status}</h3>
                 <ul>
-                    ${order.items.map(i=>`<li>${i.name} x ${i.quantity} - $${i.price}</li>`).join('')}
+                    ${order.items.map(i=>`<li>${escapeHtml(i.name)} x ${i.quantity} - $${parseFloat(i.price).toFixed(2)}</li>`).join('')}
                 </ul>
-                <p>Total: $${order.total}</p>
-                <p>Placed on: ${order.created_at}</p>
+                <p><strong>Total: $${parseFloat(order.total).toFixed(2)}</strong></p>
+                <p>Placed on: ${new Date(order.created_at).toLocaleString()}</p>
             </div>
         `).join('');
     } catch(err) {
         console.error(err);
+        document.getElementById('recentOrders').innerHTML = "<p>Could not load recent orders.</p>";
     }
 }
 
@@ -252,7 +294,10 @@ function showError(msg) {
 // Escape HTML
 // ===========================
 function escapeHtml(text) {
+    if (text === null || typeof text === 'undefined') {
+        return '';
+    }
     const div = document.createElement('div');
-    div.textContent = text;
+    div.textContent = String(text);
     return div.innerHTML;
 }
