@@ -111,7 +111,7 @@ async function addToCart(productId) {
             
             if (result.success) {
                 // Redirect to cart page
-                window.location.href = '/test2/cart.php';
+                window.location.href = '/cafora_coffee_php/users/cart.php';
             } else {
                 alert('Failed to add product to cart. Please try again.');
             }
