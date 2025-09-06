@@ -1,10 +1,10 @@
 <?php
-$requiredRole = "admin";
+$requiredRole = "admin";   // only admins can view this
 require '../includes/auth.php';
-?>
-
-<?php
 require '../includes/database_connection.php';
+?>
+<?php
+
 
 // ===== User Stats =====
 $totalUsers = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();

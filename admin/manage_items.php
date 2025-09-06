@@ -87,11 +87,16 @@ $items = $pdo->query("SELECT * FROM products ORDER BY created_at DESC")->fetchAl
             <input type="text" name="name" placeholder="Item Name" required>
             <input type="text" name="description" placeholder="Description" required>
             <input type="number" step="0.01" name="price" placeholder="Price" required>
-            <input type="text" name="category" placeholder="Category" required>
+            <select name="category" required>
+            
+            <option value="Coffee">Coffee</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Soft Drinks">Soft Drinks</option>
+            </select>
             <input type="text" name="badge" placeholder="Badge">
             <input type="file" name="image_url">
             <label><input type="checkbox" name="active"> Active</label>
-            <button type="submit" name="add" class="btn-add">+ Add</button>
+            <button type="submit" name="add" class="btn-add" align="right">+ Add</button>
         </form>
 
         <!-- Items Table -->
@@ -145,13 +150,32 @@ $items = $pdo->query("SELECT * FROM products ORDER BY created_at DESC")->fetchAl
         <form method="POST" enctype="multipart/form-data">
             <input type="hidden" name="item_id" id="edit_id">
             <input type="hidden" name="current_image" id="edit_current_image">
+
+            <label>Item Name</label>
             <input type="text" name="name" id="edit_name" placeholder="Item Name" required>
-            <input type="text" name="description" id="edit_description" placeholder="Description" required>
-            <input type="number" step="0.01" name="price" id="edit_price" placeholder="Price" required>
-            <input type="text" name="category" id="edit_category" placeholder="Category" required>
+
+            <label>Description</label>
+            <input type="text" name="description" id="edit_description" placeholder="Description" required><br><br>
+
+            <label>Price &nbsp</label>
+            <input type="number" step="0.01" name="price" id="edit_price" placeholder="Price" required><br><br>
+
+            <label>Category</label>
+            <select name="category" id="edit_category" required>
+                <option value="">-- Select Category --</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Desserts">Desserts</option>
+                <option value="Soft Drinks">Soft Drinks</option>
+            </select>
+
+            <label>Badge</label>
             <input type="text" name="badge" id="edit_badge" placeholder="Badge">
-            <input type="file" name="image_url">
+
+            <label>Image</label>
+            <input type="file" name="image_url"><br><br>
+
             <label><input type="checkbox" name="active" id="edit_active"> Active</label>
+
             <button type="submit" name="update" class="btn-add">Save</button>
         </form>
     </div>
