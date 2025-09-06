@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 // If the page requires a specific role
 if (isset($requiredRole) && $_SESSION['role'] !== $requiredRole) {
     // role mismatch
-    header("Location: ../unauthorized.php"); // you can make a nicer page for this
+    header("Location: ../login.php"); // you can make a nicer page for this
     exit;
 }
 ?>
