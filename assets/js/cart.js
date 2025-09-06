@@ -181,7 +181,7 @@ async function applyPromo() {
 // Go Back to Products
 // ===========================
 function goBack() {
-    window.location.href = '/cafora_coffee_php/product.php';
+    window.location.href = '/cafora_coffee_php/product.php#shop';
 }
 
 // ===========================

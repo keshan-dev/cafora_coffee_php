@@ -21,6 +21,7 @@
             <h1>Shop Our Menu</h1>
             <p>Discover amazing things happening here.</p>
             <a href="/cafora_coffee_php/index.php" class="cta-button">Go to Home</a>
+            <a href="/cafora_coffee_php/users/cart.php" class="cta-button">Go to Cart</a>
         </div>
     </section>
 
@@ -46,7 +47,12 @@
         </section>
     </div>
 
-
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            &copy; 2025 Caf̄ora Co. All Rights Reserved.
+        </div>
+    </footer>
     <script src="/cafora_coffee_php/assets/js/product.js"></script>
 </body>
 </html>
