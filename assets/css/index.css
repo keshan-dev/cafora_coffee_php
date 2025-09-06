@@ -408,11 +408,12 @@ body {
     }
     
     .footer {
-        padding: 40px 0 0 0;
+    margin-top: 0;
+    padding-top: 0;
     }
     
     .footer-content {
-        gap: 30px;
+    margin-bottom: 15px;
     }
     
     .social-link svg {
@@ -421,7 +422,7 @@ body {
     }
     
     .footer-bottom {
-        padding: 25px 0;
+    padding: 5px 0;        
     }
 }
 
