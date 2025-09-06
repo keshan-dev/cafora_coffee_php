@@ -113,19 +113,7 @@
                 </div>
 
 
-                <div class="product-card">
-                    <div class="product-image cheesecake">
-                        <h3 class="fs-32 product-title">Cheesecake</h3>
-                    </div>
-                    <div class="product-info">
-                        <h4 class="product-name">Berry Bliss Cheesecake</h4>
-                        <p class="product-description">Creamy cheesecake with fresh berries for a refreshing treat.</p>
-                        <div class="product-footer">
-                            <span class="price">$15.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
+                
 
                  <div class="product-card">
                     <div class="product-image tropical-dream">
