@@ -3,65 +3,49 @@ $requiredRole = "admin";   // only admins can view this
 require '../includes/auth.php';
 require '../includes/database_connection.php';
 
-// ===== Update Order Status =====
-if(isset($_POST['status']) && isset($_POST['order_id'])){
-    $order_id = $_POST['order_id'];
-    $status = $_POST['status'];
-
-    $stmt_check = $pdo->prepare("SELECT status FROM orders WHERE order_id=?");
-    $stmt_check->execute([$order_id]);
-    $current = $stmt_check->fetch(PDO::FETCH_ASSOC);
-
-    if($current && $current['status'] != 'completed'){
-        $stmt = $pdo->prepare("UPDATE orders SET status=? WHERE order_id=?");
-        $stmt->execute([$status, $order_id]);
-    }
-
+// Update Order Status
+if(isset($_POST['status'], $_POST['order_id'])){
+    $stmt = $pdo->prepare("UPDATE orders SET status=? WHERE order_id=?");
+    $stmt->execute([$_POST['status'], $_POST['order_id']]);
     header("Location: manage_orders.php");
     exit;
 }
 
-// ===== Delete Order =====
+// Update Order Quantity (optional if you track quantities per order)
+if(isset($_POST['update_quantity'])){
+    $order_item_id = $_POST['order_item_id'];
+    $quantity = $_POST['quantity'];
+    $stmt = $pdo->prepare("UPDATE order_items SET quantity=? WHERE order_item_id=?");
+    $stmt->execute([$quantity, $order_item_id]);
+    header("Location: manage_orders.php");
+    exit;
+}
+
+// Delete Order
 if(isset($_GET['delete'])){
     $order_id = $_GET['delete'];
-
-    $stmt_check = $pdo->prepare("SELECT status FROM orders WHERE order_id=?");
-    $stmt_check->execute([$order_id]);
-    $order = $stmt_check->fetch(PDO::FETCH_ASSOC);
-
-    if($order && $order['status'] != 'completed'){
-        $stmt = $pdo->prepare("DELETE FROM orders WHERE order_id=?");
-        $stmt->execute([$order_id]);
-
-        // Also delete order items
-        $stmt = $pdo->prepare("DELETE FROM order_items WHERE order_id=?");
-        $stmt->execute([$order_id]);
+    // Prevent deleting completed orders
+    $stmt = $pdo->prepare("SELECT status FROM orders WHERE order_id=?");
+    $stmt->execute([$order_id]);
+    $status = $stmt->fetchColumn();
+    if($status != 'completed'){
+        $pdo->prepare("DELETE FROM order_items WHERE order_id=?")->execute([$order_id]);
+        $pdo->prepare("DELETE FROM orders WHERE order_id=?")->execute([$order_id]);
     }
-
     header("Location: manage_orders.php");
     exit;
 }
 
-// ===== Fetch Orders with totals =====
+// Fetch Orders with items and totals
 $orders = $pdo->query("
-    SELECT o.*, 
-           SUM(oi.price * oi.quantity) AS total
+    SELECT o.order_id, o.user_id, o.total, o.status, o.created_at,
+        GROUP_CONCAT(CONCAT(p.name, ' (x', oi.quantity, ')') SEPARATOR ', ') AS items
     FROM orders o
     LEFT JOIN order_items oi ON o.order_id = oi.order_id
+    LEFT JOIN products p ON oi.item_id = p.id
     GROUP BY o.order_id
     ORDER BY o.created_at DESC
 ")->fetchAll(PDO::FETCH_ASSOC);
-
-// ===== Fetch Order Items with Product Names =====
-$order_items_map = [];
-$stmt_items = $pdo->query("
-    SELECT oi.*, p.name AS product_name 
-    FROM order_items oi
-    LEFT JOIN products p ON oi.item_id = p.id
-");
-foreach($stmt_items->fetchAll(PDO::FETCH_ASSOC) as $item){
-    $order_items_map[$item['order_id']][] = $item;
-}
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +73,7 @@ foreach($stmt_items->fetchAll(PDO::FETCH_ASSOC) as $item){
                         <th>Order ID</th>
                         <th>User ID</th>
                         <th>Items</th>
-                        <th>Total ($)</th>
+                        <th>Total</th>
                         <th>Status</th>
                         <th>Created At</th>
                         <th>Action</th>
@@ -100,24 +84,12 @@ foreach($stmt_items->fetchAll(PDO::FETCH_ASSOC) as $item){
                     <tr>
                         <td><?= $order['order_id'] ?></td>
                         <td><?= $order['user_id'] ?></td>
-                        <td>
-                            <ul>
-                                <?php 
-                                if(isset($order_items_map[$order['order_id']])){
-                                    foreach($order_items_map[$order['order_id']] as $item){
-                                        echo "<li>{$item['product_name']} | Qty: {$item['quantity']} | Price: \${$item['price']}</li>";
-                                    }
-                                } else {
-                                    echo "No items";
-                                }
-                                ?>
-                            </ul>
-                        </td>
-                        <td><?= number_format($order['total'], 2) ?></td>
+                        <td><?= $order['items'] ?></td>
+                        <td>$<?= number_format($order['total'],2) ?></td>
                         <td>
                             <form method="POST" action="manage_orders.php">
                                 <input type="hidden" name="order_id" value="<?= $order['order_id'] ?>">
-                                <select name="status" onchange="this.form.submit()" <?= $order['status']=='completed'?'':'' ?>>
+                                <select name="status" onchange="this.form.submit()">
                                     <?php
                                     $statuses = ['pending','processing','cancelled','completed'];
                                     foreach($statuses as $s){
@@ -133,7 +105,7 @@ foreach($stmt_items->fetchAll(PDO::FETCH_ASSOC) as $item){
                             <?php if($order['status'] != 'completed'): ?>
                                 <a class="btn-delete" href="manage_orders.php?delete=<?= $order['order_id'] ?>" onclick="return confirm('Delete this order?')">Delete</a>
                             <?php else: ?>
-                                <span style="color:green;font-weight:bold;">Completed</span>
+                                <span style="color:gray;">Completed</span>
                             <?php endif; ?>
                         </td>
                     </tr>
