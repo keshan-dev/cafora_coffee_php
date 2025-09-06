@@ -1,10 +1,11 @@
 <?php
-$requiredRole = "admin";
+$requiredRole = "admin";   // only admins can view this
 require '../includes/auth.php';
+require '../includes/database_connection.php';
 ?>
 
 <?php
-require '../includes/database_connection.php';
+
 
 // Add User
 if(isset($_POST['add'])){
