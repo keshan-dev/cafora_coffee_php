@@ -106,6 +106,7 @@ async function updateQuantity(itemId, newQuantity) {
             const itemIndex = cartItems.findIndex(item => item.id == itemId);
             if (itemIndex !== -1) {
                 cartItems[itemIndex].quantity = parseInt(newQuantity);
+                renderCartItems(); // <-- ADD THIS LINE to redraw the cart
                 calculateTotals();
             }
         } else {
