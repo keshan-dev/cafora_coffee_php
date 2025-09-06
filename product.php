@@ -11,6 +11,10 @@
 <body>
 
      <section class="hero-section">
+        <!-- Import navbar -->
+        <?php include 'includes/navbar.php'; ?>
+
+         <!-- Hero video background -->
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="/cafora_coffee_php/assets/images/coffee.mp4" type="video/mp4">
         </video>
@@ -43,6 +47,9 @@
         <button class="show-more-btn base-font" id="showMoreBtn" style="display: none;">Show More Products</button>
         </section>
     </div>
+
+    <!-- Import footer -->
+        <?php include 'includes/footer.php'; ?>
 
     <script src="/cafora_coffee_php/assets/js/product.js"></script>
 </body>

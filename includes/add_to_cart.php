@@ -9,7 +9,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 $servername = "localhost";
 $username = "root";    
 $password = "";    
-$dbname = "products";      
+$dbname = "coffee_shop";      
 
 try {
     // Get JSON input
