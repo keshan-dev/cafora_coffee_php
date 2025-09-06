@@ -11,8 +11,6 @@
 <body>
 
      <section class="hero-section">
-        <!-- Import navbar -->
-        <?php include 'includes/navbar.php'; ?>
 
          <!-- Hero video background -->
         <video class="hero-video" autoplay muted loop playsinline>
@@ -22,7 +20,7 @@
         <div class="hero-content">
             <h1>Shop Our Menu</h1>
             <p>Discover amazing things happening here.</p>
-            <a href="#shop" class="cta-button">Shop Now</a>
+            <a href="/cafora_coffee_php/index.php" class="cta-button">Go to Home</a>
         </div>
     </section>
 
@@ -48,8 +46,6 @@
         </section>
     </div>
 
-    <!-- Import footer -->
-        <?php include 'includes/footer.php'; ?>
 
     <script src="/cafora_coffee_php/assets/js/product.js"></script>
 </body>
