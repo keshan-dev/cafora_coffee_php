@@ -156,6 +156,20 @@
                         </div>
                     </div>
                 </div>
+
+                  <div class="product-card">
+                    <div class="product-image cheesecake">
+                        <h3 class="fs-32 product-title">Affogato</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Affogato</h4>
+                        <p class="product-description">Rich espresso poured over creamy gelato.</p>
+                        <div class="product-footer">
+                            <span class="price">$15.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
