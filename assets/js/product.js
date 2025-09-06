@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Load products from PHP backend
 async function loadProducts() {
     try {
-        const response = await fetch('/test2/getproducts.php');
+        const response = await fetch('/cafora_coffee_php/includes/getproducts.php');
         
         if (!response.ok) {
             throw new Error('Failed to fetch products');
@@ -93,7 +93,7 @@ async function addToCart(productId) {
     if (product) {
         try {
             // Send product to cart via PHP
-            const response = await fetch('/test2/add_to_cart.php', {
+            const response = await fetch('/cafora_coffee_php/includes/add_to_cart.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
