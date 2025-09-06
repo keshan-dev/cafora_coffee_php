@@ -3,9 +3,8 @@ $requiredRole = "admin";   // only admins can view this
 require '../includes/auth.php';
 require '../includes/database_connection.php';
 ?>
+
 <?php
-
-
 // ===== User Stats =====
 $totalUsers = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
 $totalAdmins = $pdo->query("SELECT COUNT(*) FROM users WHERE role='admin'")->fetchColumn();
@@ -42,10 +41,21 @@ $recentOrders = $pdo->query("
 ")->fetchAll(PDO::FETCH_ASSOC);
 
 // ===== Charts Data =====
-$roleData = $pdo->query("SELECT role, COUNT(*) as count FROM users GROUP BY role")->fetchAll(PDO::FETCH_ASSOC);
-$roleLabels = []; $roleCounts = [];
-foreach($roleData as $r){ $roleLabels[]=$r['role']; $roleCounts[]=$r['count']; }
+// Order Category Distribution
+$categoryData = $pdo->query("
+    SELECT category, COUNT(*) as count
+    FROM products p
+    JOIN order_items oi ON p.id = oi.item_id
+    GROUP BY category
+")->fetchAll(PDO::FETCH_ASSOC);
 
+$categoryLabels = []; $categoryCounts = [];
+foreach($categoryData as $c){
+    $categoryLabels[] = $c['category'];
+    $categoryCounts[] = $c['count'];
+}
+
+// User Growth Last 7 Days
 $userGrowth = []; 
 for($i=6;$i>=0;$i--){
     $date=date('Y-m-d',strtotime("-$i days"));
@@ -55,6 +65,7 @@ for($i=6;$i>=0;$i--){
 $growthLabels=array_column($userGrowth,'date');
 $growthCounts=array_column($userGrowth,'count');
 
+// Order Growth Last 7 Days
 $orderGrowth = [];
 for($i=6;$i>=0;$i--){
     $date=date('Y-m-d',strtotime("-$i days"));
@@ -64,6 +75,7 @@ for($i=6;$i>=0;$i--){
 $orderLabels=array_column($orderGrowth,'date');
 $orderCounts=array_column($orderGrowth,'count');
 
+// Top Selling Items
 $topItems = $pdo->query("
     SELECT oi.item_id, SUM(oi.quantity) as total_sold
     FROM order_items oi
@@ -72,6 +84,7 @@ $topItems = $pdo->query("
     LIMIT 5
 ")->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +102,6 @@ $topItems = $pdo->query("
             <div class="toggle"><ion-icon name="menu-outline"></ion-icon></div>
             <h2>Cafora_Coffee</h2>
         </div>
-
 
         <!-- ORDERS STATS -->
         <h3>Orders Stats</h3>
@@ -111,13 +123,11 @@ $topItems = $pdo->query("
             <div class="card"><h3>Blocked Users</h3><p><?= $blockedUsers ?></p></div>
         </div>
 
-        
-
         <!-- CHARTS -->
         <div class="charts">
             <div class="chart-container">
-                <h3>User Role Distribution</h3>
-                <canvas id="roleChart"></canvas>
+                <h3>Order Category Distribution</h3>
+                <canvas id="categoryChart"></canvas>
             </div>
             <div class="chart-container">
                 <h3>New Users Last 7 Days</h3>
@@ -187,13 +197,19 @@ toggle.addEventListener('click', () => {
 </script>
 
 <script>
-new Chart(document.getElementById('roleChart').getContext('2d'),{
+// Order Category Distribution
+new Chart(document.getElementById('categoryChart').getContext('2d'),{
     type:'pie',
     data:{
-        labels: <?= json_encode($roleLabels) ?>,
-        datasets:[{data: <?= json_encode($roleCounts) ?>, backgroundColor:['#4CAF50','#FFC107','#F44336','#2196F3']}]
+        labels: <?= json_encode($categoryLabels) ?>,
+        datasets:[{
+            data: <?= json_encode($categoryCounts) ?>,
+            backgroundColor:['#4CAF50','#FFC107','#F44336','#2196F3','#9C27B0','#00BCD4']
+        }]
     }
 });
+
+// New Users Last 7 Days
 new Chart(document.getElementById('growthChart').getContext('2d'),{
     type:'line',
     data:{
@@ -201,6 +217,8 @@ new Chart(document.getElementById('growthChart').getContext('2d'),{
         datasets:[{label:'New Users', data: <?= json_encode($growthCounts) ?>, borderColor:'#4CAF50', backgroundColor:'rgba(76,175,80,0.2)', fill:true, tension:0.4}]
     }
 });
+
+// Orders Last 7 Days
 new Chart(document.getElementById('orderChart').getContext('2d'),{
     type:'line',
     data:{
@@ -208,6 +226,8 @@ new Chart(document.getElementById('orderChart').getContext('2d'),{
         datasets:[{label:'Orders', data: <?= json_encode($orderCounts) ?>, borderColor:'#FF9800', backgroundColor:'rgba(255,152,0,0.2)', fill:true, tension:0.4}]
     }
 });
+
+// Top Selling Items
 new Chart(document.getElementById('topItemsChart').getContext('2d'),{
     type:'bar',
     data:{

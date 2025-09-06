@@ -163,7 +163,7 @@ $items = $pdo->query("SELECT * FROM products ORDER BY created_at DESC")->fetchAl
 
             <label>Category</label>
             <select name="category" id="edit_category" required>
-                <option value="">-- Select Category --</option>
+                
                 <option value="Coffee">Coffee</option>
                 <option value="Desserts">Desserts</option>
                 <option value="Soft Drinks">Soft Drinks</option>
