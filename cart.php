@@ -28,3 +28,46 @@
                     </button>
                 </div>
             </div>
+
+             <!-- Order Summary Section -->
+            <div class="order-summary">
+                <h2 class="summary-title fs-24">Order Summary</h2>
+                
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="shipping">$5.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Taxes</span>
+                    <span id="taxes">$0.00</span>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="summary-row total">
+                    <span class="fs-24">Total</span>
+                    <span class="fs-24" id="total">$0.00</span>
+                </div>
+                
+                <div class="promo-section">
+                    <label class="promo-label">Have a promo code?</label>
+                    <div class="promo-input-group">
+                        <input type="text" id="promoCode" placeholder="Enter code" class="promo-input">
+                        <button class="apply-btn base-font" onclick="applyPromo()">Apply</button>
+                    </div>
+                </div>
+                
+                <button class="checkout-btn fs-24" onclick="proceedToCheckout()">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+
+</body>
+</html>
