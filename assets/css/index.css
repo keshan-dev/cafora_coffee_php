@@ -682,6 +682,13 @@ body {
     background-repeat: no-repeat;
 }
 
+.Coffee-ice-cream{
+    background-image: url("/cafora_coffee_php/assets/images/Coffee-ice-cream.jpg"); /* your image path */
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 
 
 
