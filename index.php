@@ -19,8 +19,8 @@
 <body>
 
     <main>
-          <!-- Import navbar -->
-           <?php include 'includes/header.php'; ?>
+        <!-- Import navbar -->
+        <?php include 'includes/header.php'; ?>
 
         <section class="hero">
             <div class="hero-content">
@@ -269,7 +269,7 @@
     </section>
 
     <!-- Import footer -->
-           <?php include 'includes/footer.php'; ?>
-       
+        <?php include 'includes/footer.php'; ?>
+    
 </body>
 </html>
