@@ -16,6 +16,7 @@
         </div>
 
         <div class="cart-content">
+            
             <!-- Cart Items Section -->
             <div class="cart-items-section">
                 <div id="cartItems" class="cart-items">
@@ -68,6 +69,15 @@
                 </button>
             </div>
         </div>
+
+        <!-- Recent Orders Section -->
+    <div class="recent-orders-section">
+        <h2 class="summary-title fs-24">Recent Orders</h2>
+            <div id="recentOrders" class="recent-orders">
+            <!-- Recent orders will be dynamically loaded here via cart.js -->
+            <p>Loading recent orders...</p>
+            </div>
+    </div>
         <!-- Empty Cart Message -->
         <div id="emptyCart" class="empty-cart" style="display: none;">
             <h2 class="fs-32">Your cart is empty</h2>
