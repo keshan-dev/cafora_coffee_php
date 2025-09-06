@@ -1,4 +1,9 @@
 <?php
+$requiredRole = "admin";
+require '../includes/auth.php';
+?>
+
+<?php
 require '../includes/database_connection.php';
 
 // Add User

@@ -1,6 +1,6 @@
 <?php
 $requiredRole = "admin";
-require '../includes/auth_check.php';
+require '../includes/auth.php';
 ?>
 
 <?php

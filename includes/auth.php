@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-require 'database_connection.php';
 
 if (!isset($_SESSION['user_id'])) {
     // not logged in
@@ -12,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 // If the page requires a specific role
 if (isset($requiredRole) && $_SESSION['role'] !== $requiredRole) {
     // if role mismatch
-    header("Location: ../unauthorized.php"); // create this page for better UX
+    header("Location: ../login.php"); // create this page for better UX
     exit;
 }
 ?>
