@@ -32,7 +32,7 @@
                     From bold espressos to creamy lattes and fresh pastries, find your new favorite treat.
                 </p>
 
-                <a href="/cafora_coffee_php/items.php" class="cta-button base-font">Order Now</a>
+                <a href="/cafora_coffee_php/product.php" class="cta-button base-font">Order Now</a>
             </div>
         </section>
     </main>
