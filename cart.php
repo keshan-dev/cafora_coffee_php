@@ -68,6 +68,22 @@
                 </button>
             </div>
         </div>
+        <!-- Empty Cart Message -->
+        <div id="emptyCart" class="empty-cart" style="display: none;">
+            <h2 class="fs-32">Your cart is empty</h2>
+            <p>Looks like you haven't added any items to your cart yet.</p>
+            <button class="continue-shopping-btn base-font" onclick="goBack()">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            &copy; 2025 Caf̄ora Co. All Rights Reserved.
+        </div>
+    </footer>
 
 </body>
 </html>
