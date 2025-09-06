@@ -31,7 +31,7 @@
                 <a href="/cafora_coffee_php/index.php" class="nav-link base-font">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="/cafora_coffee_php/items.php" class="nav-link base-font">SHOP</a>
+                <a href="/cafora_coffee_php/product.php" class="nav-link base-font">SHOP</a>
             </li>
             <li class="nav-item">
                 <a href="/cafora_coffee_php/gallery.php" class="nav-link base-font">GALLERY</a>
