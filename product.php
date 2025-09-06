@@ -20,7 +20,7 @@
         <div class="hero-content">
             <h1>Shop Our Menu</h1>
             <p>Discover amazing things happening here.</p>
-            <a href="/cafora_coffee_php/index.php" class="cta-button">Go to Home</a>
+            <a href="/cafora_coffee_php/user.php" class="cta-button">Go to Home</a>
             <a href="/cafora_coffee_php/users/cart.php" class="cta-button">Go to Cart</a>
         </div>
     </section>

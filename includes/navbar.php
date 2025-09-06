@@ -22,14 +22,14 @@ session_start();
     <div class="nav-container">
         <!-- Logo -->
         <div class="nav-logo">
-            <a href="/cafora_coffee_php/index.php">
+            <a href="/cafora_coffee_php/user.php">
                 <img src="/cafora_coffee_php/assets/images/logo.png" alt="Coffea Logo" class="logo-img">
             </a>
         </div>
 
         <!-- Desktop Navigation Menu -->
         <ul class="nav-menu">
-            <li class="nav-item"><a href="/cafora_coffee_php/index.php" class="nav-link base-font">HOME</a></li>
+            <li class="nav-item"><a href="/cafora_coffee_php/user.php" class="nav-link base-font">HOME</a></li>
             <li class="nav-item"><a href="/cafora_coffee_php/product.php" class="nav-link base-font">SHOP</a></li>
             <li class="nav-item"><a href="/cafora_coffee_php/gallery.php" class="nav-link base-font">GALLERY</a></li>
             <li class="nav-item"><a href="/cafora_coffee_php/users/cart.php" class="nav-link base-font">
