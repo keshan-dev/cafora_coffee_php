@@ -86,6 +86,20 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="product-card">
+                    <div class="product-image Americano">
+                        <h3 class="fs-32 product-title">Americano</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Americano Coffee</h4>
+                        <p class="product-description">Bold and smooth with rich, roasted notes. A classic coffee experience.</p>
+                        <div class="product-footer">
+                            <span class="price">$16.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -135,6 +149,20 @@
                         <p class="product-description">Creamy cheesecake with fresh berries for a refreshing treat.</p>
                         <div class="product-footer">
                             <span class="price">$15.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image Coffee-ice-cream">
+                        <h3 class="fs-32 product-title">Coffee Ice Cream</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Coffee Ice Cream</h4>
+                        <p class="product-description">Rich and creamy with a bold coffee kick. A smooth indulgence for true coffee lovers.</p>
+                        <div class="product-footer">
+                            <span class="price">$18.00</span>
                             <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
                     </div>
