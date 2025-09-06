@@ -14,7 +14,7 @@
 
     <title></title>
 </head>
-<body >
+<body>
 
     <!-- Navigation Bar -->
 <nav class="navbar">
