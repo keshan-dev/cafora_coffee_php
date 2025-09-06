@@ -79,9 +79,23 @@
                     </div>
                     <div class="product-info">
                         <h4 class="product-name">Cascading Iced Latte</h4>
-                        <p class="product-description">Bright and fruity with floral notes. A truly unique experience.</p>
+                        <p class="product-description">Smooth and creamy with layers of bold espresso and chilled milk.</p>
                         <div class="product-footer">
-                            <span class="price">$22.00</span>
+                            <span class="price">$20.00</span>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image Americano">
+                        <h3 class="fs-32 product-title">Americano</h3>
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-name">Americano Coffee</h4>
+                        <p class="product-description">Bold and smooth with rich, roasted notes. A classic coffee experience.</p>
+                        <div class="product-footer">
+                            <span class="price">$16.00</span>
                             <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
                     </div>
@@ -115,7 +129,7 @@
 
                 
 
-                 <div class="product-card">
+                <div class="product-card">
                     <div class="product-image tropical-dream">
                         <h3 class="fs-32 product-title">Tropical  Dream</h3>
                     </div>

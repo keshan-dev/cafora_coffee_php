@@ -675,6 +675,15 @@ body {
     background-repeat: no-repeat;
 }
 
+.Americano{
+    background-image: url("/cafora_coffee_php/assets/images/Americano.jpg"); /* your image path */
+    background-size: cover;   
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
 
 
 .product-info {
