@@ -97,7 +97,7 @@ $users=$pdo->query("SELECT * FROM users ORDER BY created_at DESC")->fetchAll(PDO
         <form method="POST">
             <input type="hidden" name="user_id" id="edit_id">
             <input type="text" name="name" id="edit_name" placeholder="Name" required>
-            <input type="email" name="email" id="edit_email" placeholder="Email" readonly>
+            <input type="email" name="email" id="edit_email" placeholder="Email" required>
             <select name="role" id="edit_role">
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
