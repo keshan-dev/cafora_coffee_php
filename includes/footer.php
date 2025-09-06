@@ -99,7 +99,7 @@
 
                         <li><a href="/cafora_coffee_php/index.php">Home</a></li>
 
-                        <li><a href="/cafora_coffee_php/items.php">Shop</a></li>
+                        <li><a href="/cafora_coffee_php/product.php">Shop</a></li>
 
                         <li><a href="/cafora_coffee_php/gallery.php">Gallery</a></li>
 
