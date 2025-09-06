@@ -1,5 +1,5 @@
 <!-- navbar goes here -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,10 +47,15 @@
                     CART
                 </a>
             </li>
+            <!-- User Profile Icon (instead of LOGIN) -->
             <li class="nav-item">
-                <a href="/cafora_coffee_php/login.php" class="nav-link base-font">LOGIN</a>
+                <a href="/cafora_coffee_php/users/profile.php" class="nav-link base-font">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M5.5 21a7.5 7.5 0 0 1 13 0"></path>
+                    </svg>
+                </a>
             </li>
-            
         </ul>
 
         <!-- Mobile Hamburger Menu-->
