@@ -1,4 +1,7 @@
-
+<?php
+$requiredRole = "admin";
+require '../includes/auth_check.php';
+?>
 
 <?php
 require '../includes/database_connection.php';
