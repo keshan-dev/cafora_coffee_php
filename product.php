@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Curated Coffee Selection</title>
+    <title>Caf̄ora-Products</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="/cafora_coffee_php/assest/css/font.css">
+    <link rel="stylesheet" href="/cafora_coffee_php/assest/css/product_page.css">
 </head>
 <body>
 
      <section class="hero-section">
         <video class="hero-video" autoplay muted loop playsinline>
-            <source src="images/coffee.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <source src="/cafora_coffee_php/assest/images/coffee.mp4" type="video/mp4">
         </video>
 
         <div class="hero-content">
@@ -46,5 +44,6 @@
         </section>
     </div>
 
+    <script src="/cafora_coffee_php/assest/js/product.js"></script>
 </body>
 </html>
