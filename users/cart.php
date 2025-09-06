@@ -1,3 +1,9 @@
+<?php
+$requiredRole = "user";   // only admins can view this
+require '../includes/auth.php';
+require '../includes/database_connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
