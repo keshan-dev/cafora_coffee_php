@@ -301,6 +301,7 @@
 
     <!-- Import footer -->
         <?php include 'includes/footer.php'; ?>
-    
+
+    <script src="/cafora_coffee_php/assets/js/cart.js"></script>
 </body>
 </html>
