@@ -15,19 +15,19 @@
         </li>
         <li>
             <a href="manage_items.php" class="<?= $currentPage == 'manage_items.php' ? 'active' : '' ?>">
-                <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                <span class="icon"><ion-icon name="cafe-outline"></ion-icon></span>
                 <span class="title">Shop</span>
             </a>
         </li>
         <li>
             <a href="manage_orders.php" class="<?= $currentPage == 'manage_orders.php' ? 'active' : '' ?>">
-                <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
                 <span class="title">Orders</span>
             </a>
         </li>
         <li>
             <a href="manage_store.php" class="<?= $currentPage == 'manage_store.php' ? 'active' : '' ?>">
-                <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
                 <span class="title">Store</span>
             </a>
         </li>
