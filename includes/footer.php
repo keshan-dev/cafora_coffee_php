@@ -55,7 +55,7 @@
 
                             </svg>
 
-                            <a href="https://www.google.com/maps?q=123+Coffee+Lane,+Bean+Town"
+                            <a href="https://www.google.com/maps?q=123+Coffee+Lane,+Bean+Town" 
         target="_blank">123 Coffee Lane, Bean Town</a>
 
                         </div>
@@ -68,7 +68,8 @@
 
                             </svg>
 
-                            <span>+1 234 567 890</span>
+                            <a href="https://wa.me/1234567890" target="_blank">+1 234 567 890</a>
+
 
                         </div>
 
