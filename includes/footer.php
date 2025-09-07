@@ -55,7 +55,8 @@
 
                             </svg>
 
-                            <span>123 Coffee Lane, Bean Town</span>
+                            <a href="https://www.google.com/maps?q=123+Coffee+Lane,+Bean+Town"
+        target="_blank">123 Coffee Lane, Bean Town</a>
 
                         </div>
 

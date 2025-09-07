@@ -202,6 +202,15 @@ body {
     padding: 10px 0 10px 0;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+        color: #c4a47c;
+}
+
 .container {
     max-width: 1600px;
     margin: 0 auto;
