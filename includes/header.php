@@ -33,9 +33,9 @@
             <li class="nav-item">
                 <a href="/cafora_coffee_php/product.php" class="nav-link base-font">SHOP</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="/cafora_coffee_php/gallery.php" class="nav-link base-font">GALLERY</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a href="/cafora_coffee_php/users/cart.php" class="nav-link base-font">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
