@@ -83,7 +83,8 @@
 
                             </svg>
 
-                            <span>contact@caf̄ora.com</span>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@cafora.com" 
+        target="_blank">contact@cafora.com</a>
 
                         </div>
 
