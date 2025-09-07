@@ -32,7 +32,7 @@
                     From bold espressos to creamy lattes and fresh pastries, find your new favorite treat.
                 </p>
 
-                <a href="/cafora_coffee_php/items.php" class="cta-button base-font">Order Now</a>
+                <a href="/cafora_coffee_php/product.php" class="cta-button base-font">Order Now</a>
             </div>
         </section>
     </main>
@@ -54,7 +54,7 @@
                         <p class="product-description">Rich, dark, and intense with notes of chocolate and nuts.</p>
                         <div class="product-footer">
                             <span class="price">$18.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         <p class="product-description">Bright and fruity with floral notes. A truly unique experience.</p>
                         <div class="product-footer">
                             <span class="price">$22.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         <p class="product-description">Bright and fruity with floral notes. A truly unique experience.</p>
                         <div class="product-footer">
                             <span class="price">$22.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         <p class="product-description">Bold and smooth with rich, roasted notes. A classic coffee experience.</p>
                         <div class="product-footer">
                             <span class="price">$16.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                         <p class="product-description">Layers of caramel cream with a crispy crunch in every bite.</p>
                         <div class="product-footer">
                             <span class="price">$10.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                         <p class="product-description">Moist coconut layers with a creamy coconut frosting. A true island treat.</p>
                         <div class="product-footer">
                             <span class="price">$12.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                         <p class="product-description">Creamy cheesecake with fresh berries for a refreshing treat.</p>
                         <div class="product-footer">
                             <span class="price">$15.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                         <p class="product-description">Rich and creamy with a bold coffee kick. A smooth indulgence for true coffee lovers.</p>
                         <div class="product-footer">
                             <span class="price">$18.00</span>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="window.location.href='/cafora_coffee_php/product.php#shop';">Shop Now</button>
                         </div>
                     </div>
                 </div>
