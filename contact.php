@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
-<!-- Fixed Header -->
+<!-- Header -->
 <header class="site-header">
   <div class="nav-container">
     <div class="logo"><a href="/cafora_coffee_php/index.php">Cafora</a></div>
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!-- Hero Cover -->
 <section class="hero-section">
   <!-- Replace with your cover image -->
-  <img src="assets/images/banner.jpg" alt="Cover">
+  <img src="uploads/barista-station.jpg" alt="Cover">
   <div class="hero-content">
     <h1>Contact Us</h1>
   </div>
