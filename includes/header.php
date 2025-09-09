@@ -46,6 +46,9 @@
                     CART
                 </a>
             </li>
+
+            <li class="nav-item"><a href="/cafora_coffee_php/contact.php" class="nav-link base-font">CONTACT US</a></li>
+
             <li class="nav-item">
                 <a href="/cafora_coffee_php/login.php" class="nav-link base-font">LOGIN</a>
             </li>
