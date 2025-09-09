@@ -1,7 +1,7 @@
 body{font-family:'Poppins',sans-serif;margin:0;color:#2e1f0f;background:#fafaf9;}
   *{box-sizing:border-box;}
 
-  /* ===== Fixed Header ===== */
+  /* ===== Header ===== */
   .site-header{
     position:fixed;top:0;left:0;right:0;
     background:#30261C;

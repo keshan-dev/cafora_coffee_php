@@ -86,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <!-- Form -->
     <section class="form-card">
-      <div class="form-sub">GET IN TOUCH</div>
-      <h3>Fill The Form Below</h3>
+      <div class="form-sub">FOR ANY QUERY</div>
+      <h3>Fill The Form </h3>
       <?php if($flash): ?><div class="flash"><?php echo htmlspecialchars($flash); ?></div><?php endif; ?>
 
       <form method="POST" class="contact-form">
