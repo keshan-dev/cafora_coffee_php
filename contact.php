@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!-- Hero Cover -->
 <section class="hero-section">
   <!-- Replace with your cover image -->
-  <img src="uploads/barista-station.jpg" alt="Cover">
+  <img src="assets/images/banner.jpg" alt="Cover">
   <div class="hero-content">
     <h1>Contact Us</h1>
   </div>
