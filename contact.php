@@ -10,13 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name    = mysqli_real_escape_string($conn, $_POST['name']);
     $email   = mysqli_real_escape_string($conn, $_POST['email']);
     $phone   = mysqli_real_escape_string($conn, $_POST['phone']);
-    $website = mysqli_real_escape_string($conn, $_POST['website']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
     $subject = mysqli_real_escape_string($conn, $_POST['subject']);
     $message = mysqli_real_escape_string($conn, $_POST['message']);
 
     $sql = "INSERT INTO contact (name,email,phone,website,subject,message)
-            VALUES ('$name','$email','$phone','$website','$subject','$message')";
-    $flash = mysqli_query($conn,$sql) ? "✅ Message sent!" : ("❌ Error: ".mysqli_error($conn));
+            VALUES ('$name','$email','$phone','$address','$subject','$message')";
+    $flash = mysqli_query($conn,$sql) ? " Message sent!" : (" Error: ".mysqli_error($conn));
 }
 ?>
 <!DOCTYPE html>
@@ -79,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <aside class="info-card">
       <small>LET’S TALK</small>
       <h2>Speak With Expert Engineers.</h2>
-      <div class="info-item"><strong>Email:</strong><br>info@gsit.com.au</div>
-      <div class="info-item"><strong>Phone:</strong><br>AU: +61 (02) 844 302 41<br>LK: +94 11 2820206</div>
-      <div class="info-item"><strong>Address:</strong><br>17/3, Sarasavi Mawatha,<br>Kalubowila, Colombo, Sri Lanka.</div>
+      <div class="info-item"><strong>Email:</strong><br>info@gsit.com.lk</div>
+      <div class="info-item"><strong>Phone:</strong><br>Tel: 0113657867<br>whatsapp: +94 11 2820206</div>
+      <div class="info-item"><strong>Address:</strong><br>Pitipana - Thalagala Rd,<br>Homagama, Colombo, Sri Lanka.</div>
     </aside>
 
     <!-- Form -->
@@ -92,12 +92,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       <form method="POST" class="contact-form">
         <div class="grid-2">
-          <input class="input" type="text" name="name" placeholder="Name" required>
-          <input class="input" type="email" name="email" placeholder="E-Mail" required>
+          <input class="input" type="text" name="name" placeholder="First Name" required>
+         
+          <input class="input" type="email" name="email" placeholder="Email" required>
         </div>
         <div class="grid-2">
-          <input class="input" type="text" name="phone" placeholder="Phone Number">
-          <input class="input" type="text" name="website" placeholder="Your Website">
+             <input class="input" type="text" name="address" placeholder="Address (optional)" required>
+          <input class="input" type="text" name="phone" placeholder="Phone">
+          
         </div>
         <input class="input" type="text" name="subject" placeholder="Subject" required>
         <textarea class="textarea" name="message" placeholder="Your Message Here" required></textarea>
