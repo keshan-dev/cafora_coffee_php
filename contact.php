@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
         <input class="input" type="text" name="subject" placeholder="Subject" required>
         <textarea class="textarea" name="message" placeholder="Your Message Here" required></textarea>
-        <button class="btn" type="submit">Submit Now</button>
+        <button class="btn" type="submit">Submit</button>
       </form>
     </section>
   </div>
