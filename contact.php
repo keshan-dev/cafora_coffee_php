@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <title>Cafora — Contact</title>
 
   <link rel="stylesheet" href="/cafora_coffee_php/assets/css/font.css">
-    <link rel="stylesheet" href="/cafora_coffee_php/assets/css/contact.css">
+  <link rel="stylesheet" href="/cafora_coffee_php/assets/css/contact.css">
     
 
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
