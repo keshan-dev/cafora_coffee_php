@@ -1,72 +1,70 @@
 <?php
 session_start();
-
-// DB connect
-$conn = mysqli_connect("localhost", "root", "", "coffee_shop");
-if (!$conn) { die("DB connection failed: " . mysqli_connect_error()); }
+require 'includes/database_connection.php';
 
 $flash = "";
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name    = mysqli_real_escape_string($conn, $_POST['name']);
-    $email   = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone   = mysqli_real_escape_string($conn, $_POST['phone']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $subject = mysqli_real_escape_string($conn, $_POST['subject']);
-    $message = mysqli_real_escape_string($conn, $_POST['message']);
 
-    $sql = "INSERT INTO contact (name,email,phone,website,subject,message)
-            VALUES ('$name','$email','$phone','$address','$subject','$message')";
-    $flash = mysqli_query($conn,$sql) ? " Message sent!" : (" Error: ".mysqli_error($conn));
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name    = trim($_POST['name']);
+    $email   = trim($_POST['email']);
+    $phone   = trim($_POST['phone']);
+    $website = trim($_POST['website']);
+    $subject = trim($_POST['subject']);
+    $message = trim($_POST['message']);
+
+    try {
+        $sql = "INSERT INTO contact (name, email, phone, website, subject, message) 
+                VALUES (:name, :email, :phone, :website, :subject, :message)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':name'    => $name,
+            ':email'   => $email,
+            ':phone'   => $phone,
+            ':website' => $website,
+            ':subject' => $subject,
+            ':message' => $message
+        ]);
+        $flash = "✅ Message sent!";
+    } catch (PDOException $e) {
+        $flash = "❌ Error: " . $e->getMessage();
+    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    
-
-
-    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cafora — Contact</title>
 
   <link rel="stylesheet" href="/cafora_coffee_php/assets/css/font.css">
   <link rel="stylesheet" href="/cafora_coffee_php/assets/css/contact.css">
-    
-
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
- 
 </head>
 <body>
 
-<!-- Header -->
+<!-- Fixed Header -->
 <header class="site-header">
   <div class="nav-container">
     <div class="logo"><a href="/cafora_coffee_php/index.php">Cafora</a></div>
     <nav class="nav-links">
-  <a href="/cafora_coffee_php/index.php">HOME</a>
-  <a href="/cafora_coffee_php/product.php">SHOP</a>
-<a href="/cafora_coffee_php/users/cart.php">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="m1 1 4 4 5.9 13 9.1-13H8.5"></path>
-                    </svg>
-                    CART
-
-  <a href="/cafora_coffee_php/login.php">LOGIN</a>
-
-</nav>
-
-
-
+      <a href="/cafora_coffee_php/index.php">HOME</a>
+      <a href="/cafora_coffee_php/product.php">SHOP</a>
+      <a href="/cafora_coffee_php/users/cart.php">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="m1 1 4 4 5.9 13 9.1-13H8.5"></path>
+        </svg>
+        CART
+      </a>
+      <a href="/cafora_coffee_php/login.php">LOGIN</a>
+    </nav>
   </div>
 </header>
 
 <!-- Hero Cover -->
 <section class="hero-section">
-  <!-- Replace with your cover image -->
   <img src="assets/images/banner.jpg" alt="Cover">
   <div class="hero-content">
     <h1>Contact Us</h1>
@@ -79,31 +77,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <aside class="info-card">
       <small>LET’S TALK</small>
       <h2>Speak With Expert Engineers.</h2>
-      <div class="info-item"><strong>Email:</strong><br>info@gsit.com.lk</div>
-      <div class="info-item"><strong>Phone:</strong><br>Tel: 0113657867<br>whatsapp: +94 11 2820206</div>
-      <div class="info-item"><strong>Address:</strong><br>Pitipana - Thalagala Rd,<br>Homagama, Colombo, Sri Lanka.</div>
+      <div class="info-item"><strong>Email:</strong><br>info@gsit.com.au</div>
+      <div class="info-item"><strong>Phone:</strong><br>AU: +61 (02) 844 302 41<br>LK: +94 11 2820206</div>
+      <div class="info-item"><strong>Address:</strong><br>17/3, Sarasavi Mawatha,<br>Kalubowila, Colombo, Sri Lanka.</div>
     </aside>
 
     <!-- Form -->
     <section class="form-card">
-      <div class="form-sub">FOR ANY QUERY</div>
-      <h3>Fill The Form </h3>
-      <?php if($flash): ?><div class="flash"><?php echo htmlspecialchars($flash); ?></div><?php endif; ?>
+      <div class="form-sub">GET IN TOUCH</div>
+      <h3>Fill The Form Below</h3>
+      <?php if ($flash): ?>
+        <div class="flash"><?php echo htmlspecialchars($flash); ?></div>
+      <?php endif; ?>
 
       <form method="POST" class="contact-form">
         <div class="grid-2">
-          <input class="input" type="text" name="name" placeholder="First Name" required>
-         
-          <input class="input" type="email" name="email" placeholder="Email" required>
+          <input class="input" type="text" name="name" placeholder="Name" required>
+          <input class="input" type="email" name="email" placeholder="E-Mail" required>
         </div>
         <div class="grid-2">
-             <input class="input" type="text" name="address" placeholder="Address (optional)" required>
-          <input class="input" type="text" name="phone" placeholder="Phone">
-          
+          <input class="input" type="text" name="phone" placeholder="Phone Number">
+          <input class="input" type="text" name="website" placeholder="Your Website">
         </div>
         <input class="input" type="text" name="subject" placeholder="Subject" required>
         <textarea class="textarea" name="message" placeholder="Your Message Here" required></textarea>
-        <button class="btn" type="submit">Submit</button>
+        <button class="btn" type="submit">Submit Now</button>
       </form>
     </section>
   </div>
