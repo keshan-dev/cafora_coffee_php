@@ -17,40 +17,6 @@ if (isset($_GET['delete'])) {
     header("Location: manage_messages.php");
     exit;
 }
-
-// --- Handle Update ---
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_message'])) {
-    $id      = intval($_POST['id']);
-    $name    = trim($_POST['name']);
-    $email   = trim($_POST['email']);
-    $phone   = trim($_POST['phone']);
-    $website = trim($_POST['website']);
-    $subject = trim($_POST['subject']);
-    $message = trim($_POST['message']);
-
-    try {
-        $sql = "UPDATE contact SET 
-                    name = :name, email = :email, phone = :phone, 
-                    website = :website, subject = :subject, message = :message 
-                WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            ':id'      => $id,
-            ':name'    => $name,
-            ':email'   => $email,
-            ':phone'   => $phone,
-            ':website' => $website,
-            ':subject' => $subject,
-            ':message' => $message
-        ]);
-        $_SESSION['flash'] = "✅ Message updated successfully.";
-    } catch (PDOException $e) {
-        $_SESSION['flash'] = "❌ Error updating: " . $e->getMessage();
-    }
-    header("Location: manage_messages.php");
-    exit;
-}
-
 // --- Fetch Messages ---
 try {
     $stmt = $pdo->query("SELECT * FROM contact ORDER BY created_at DESC");
@@ -104,7 +70,6 @@ try {
                                 <td><?= $msg['created_at'] ?></td>
                                 <td>
                                     <button class="btn-edit" onclick="openModal('view-<?= $msg['id'] ?>')">View</button>
-                                    <button class="btn-edit" onclick="openModal('edit-<?= $msg['id'] ?>')">Edit</button>
                                     <a class="btn-delete" href="manage_messages.php?delete=<?= $msg['id'] ?>" onclick="return confirm('Delete this message?')">Delete</a>
                                 </td>
                             </tr>
@@ -123,29 +88,6 @@ try {
                                 </div>
                             </div>
 
-                            <!-- Edit Modal -->
-                            <div id="edit-<?= $msg['id'] ?>" class="modal">
-                                <div class="modal-content">
-                                    <span class="close" onclick="closeModal('edit-<?= $msg['id'] ?>')">&times;</span>
-                                    <h3>Edit Message</h3>
-                                    <form method="POST">
-                                        <input type="hidden" name="id" value="<?= $msg['id'] ?>">
-                                        <label>Name</label>
-                                        <input type="text" name="name" value="<?= htmlspecialchars($msg['name']) ?>" required>
-                                        <label>Email</label>
-                                        <input type="email" name="email" value="<?= htmlspecialchars($msg['email']) ?>" required>
-                                        <label>Phone</label>
-                                        <input type="text" name="phone" value="<?= htmlspecialchars($msg['phone']) ?>">
-                                        <label>Website</label>
-                                        <input type="text" name="website" value="<?= htmlspecialchars($msg['website']) ?>">
-                                        <label>Subject</label>
-                                        <input type="text" name="subject" value="<?= htmlspecialchars($msg['subject']) ?>" required>
-                                        <label>Message</label>
-                                        <textarea name="message" required><?= htmlspecialchars($msg['message']) ?></textarea>
-                                        <button type="submit" name="update_message" class="btn-add">Save Changes</button>
-                                    </form>
-                                </div>
-                            </div>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <tr><td colspan="6">No messages found.</td></tr>
