@@ -16,7 +16,6 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     // SQL query to fetch products
-    // Adjust the table name and column names according to your database structure
     $sql = "SELECT 
                 id, 
                 name, 
