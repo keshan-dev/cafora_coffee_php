@@ -38,10 +38,11 @@
             </a>
         </li>
         <li>
-            <a href="../index.php">
+            <a href="../index.php" onclick="return confirm('Are you sure you want to sign out?');">
                 <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                 <span class="title">Sign Out</span>
             </a>
         </li>
+
     </ul>
 </div>
