@@ -32,6 +32,12 @@
             </a>
         </li>
         <li>
+            <a href="manage_messages.php" class="<?= $currentPage == 'manage_messages.php' ? 'active' : '' ?>">
+                <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                <span class="title">Messages</span>
+            </a>
+        </li>
+        <li>
             <a href="../index.php">
                 <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                 <span class="title">Sign Out</span>
