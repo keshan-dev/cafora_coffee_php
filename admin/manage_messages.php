@@ -2,7 +2,7 @@
 $requiredRole = "admin"; // only admins can access
 require '../includes/auth.php';
 require '../includes/database_connection.php';
-session_start();
+// session_start();
 
 // --- Handle Delete ---
 if (isset($_GET['delete'])) {
