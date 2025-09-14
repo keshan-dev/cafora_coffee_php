@@ -3,33 +3,18 @@ $requiredRole = "admin";
 require '../includes/auth.php';
 require '../includes/database_connection.php';
 
-// Add Item
-if (isset($_POST['add'])) {
-    $store_id    = $_POST['store_id'];
-    $name        = $_POST['name'];
-    $description = $_POST['description'];
-    $price       = $_POST['price'];
-    $stock       = $_POST['stock'];
-    $status      = $_POST['status'];
+// Update Issued only
+if (isset($_POST['update_issued'])) {
+    $id     = $_POST['item_id'];
+    $issued = (int) $_POST['issued'];
 
-    $stmt = $pdo->prepare("INSERT INTO store_items (store_id,name,description,price,stock,status,created_at) VALUES (?,?,?,?,?,?,NOW())");
-    $stmt->execute([$store_id,$name,$description,$price,$stock,$status]);
-    header("Location: manage_store.php"); exit;
-}
-
-// Update Item
-if (isset($_POST['update'])) {
-    $id          = $_POST['item_id'];
-    $store_id    = $_POST['store_id'];
-    $name        = $_POST['name'];
-    $description = $_POST['description'];
-    $price       = $_POST['price'];
-    $stock       = $_POST['stock'];
-    $status      = $_POST['status'];
-
-    $stmt = $pdo->prepare("UPDATE store_items SET store_id=?, name=?, description=?, price=?, stock=?, status=? WHERE id=?");
-    $stmt->execute([$store_id,$name,$description,$price,$stock,$status,$id]);
-    header("Location: manage_store.php"); exit;
+    // make sure issued is not negative
+    if ($issued >= 0) {
+        $stmt = $pdo->prepare("UPDATE store_items SET issued=? WHERE id=?");
+        $stmt->execute([$issued, $id]);
+    }
+    header("Location: manage_store.php");
+    exit;
 }
 
 // Delete Item
@@ -41,7 +26,11 @@ if (isset($_GET['delete'])) {
 }
 
 // Fetch Items & Stores
-$items = $pdo->query("SELECT si.*, s.name AS store_name FROM store_items si JOIN stores s ON si.store_id=s.id ORDER BY si.created_at DESC")->fetchAll(PDO::FETCH_ASSOC);
+$items = $pdo->query("SELECT si.*, s.name AS store_name 
+                      FROM store_items si 
+                      JOIN stores s ON si.store_id=s.id 
+                      ORDER BY si.created_at DESC")->fetchAll(PDO::FETCH_ASSOC);
+
 $stores = $pdo->query("SELECT * FROM stores WHERE status='active' ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -60,9 +49,6 @@ $stores = $pdo->query("SELECT * FROM stores WHERE status='active' ORDER BY name"
             <h2>Cafora_Coffee</h2>
         </div>
 
-        <!-- Button to Open Add Item Modal -->
-        <button class="btn-add" onclick="openAddModal()">+ Add New Item</button>
-
         <!-- Items Table -->
         <div class="table-wrapper">
             <table class="styled-table">
@@ -74,12 +60,18 @@ $stores = $pdo->query("SELECT * FROM stores WHERE status='active' ORDER BY name"
                         <th>Description</th>
                         <th>Price</th>
                         <th>Stock</th>
+                        <th>Issued</th>
+                        <th>Available</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($items as $item): ?>
+                        <?php 
+                            $issued    = $item['issued'] ?? 0; 
+                            $available = $item['stock'] - $issued; 
+                        ?>
                         <tr>
                             <td><?= $item['id'] ?></td>
                             <td><?= htmlspecialchars($item['store_name']) ?></td>
@@ -87,24 +79,25 @@ $stores = $pdo->query("SELECT * FROM stores WHERE status='active' ORDER BY name"
                             <td><?= htmlspecialchars($item['description']) ?></td>
                             <td>$<?= $item['price'] ?></td>
                             <td><?= $item['stock'] ?></td>
+                            <td><?= $issued ?></td>
+                            <td><?= $available ?></td>
                             <td><?= $item['status'] ?></td>
                             <td>
                                 <button class="btn-edit"
-                                    onclick="openEditModal(
+                                    onclick="openIssuedModal(
                                         '<?= $item['id'] ?>',
-                                        '<?= $item['store_id'] ?>',
+                                        '<?= htmlspecialchars($item['store_name'],ENT_QUOTES) ?>',
                                         '<?= htmlspecialchars($item['name'],ENT_QUOTES) ?>',
-                                        '<?= htmlspecialchars($item['description'],ENT_QUOTES) ?>',
                                         '<?= $item['price'] ?>',
                                         '<?= $item['stock'] ?>',
-                                        '<?= $item['status'] ?>'
+                                        '<?= $issued ?>'
                                     )">Edit</button>
                                 <a class="btn-delete" href="manage_store.php?delete=<?= $item['id'] ?>" onclick="return confirm('Delete this item?')">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                     <?php if(empty($items)): ?>
-                        <tr><td colspan="8">No items found.</td></tr>
+                        <tr><td colspan="10">No items found.</td></tr>
                     <?php endif; ?>
                 </tbody>
             </table>
@@ -112,75 +105,48 @@ $stores = $pdo->query("SELECT * FROM stores WHERE status='active' ORDER BY name"
     </div>
 </div>
 
-<!-- Add Item Modal -->
-<div id="addModal" class="modal">
+<!-- Issued Edit Modal -->
+<div id="issuedModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeAddModal()">&times;</span>
-        <h3>Add New Item</h3>
+        <span class="close" onclick="closeIssuedModal()">&times;</span>
+        <h3>Edit Issued Count</h3>
         <form method="POST">
-            <select name="store_id" required>
-                <option value="">Select Store</option>
-                <?php foreach($stores as $store): ?>
-                    <option value="<?= $store['id'] ?>"><?= htmlspecialchars($store['name']) ?></option>
-                <?php endforeach; ?>
-            </select>
-            <input type="text" name="name" placeholder="Item Name" required>
-            <input type="text" name="description" placeholder="Description">
-            <input type="number" name="price" placeholder="Price" step="0.01" required>
-            <input type="number" name="stock" placeholder="Stock" value="0" required>
-            <select name="status">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-            </select>
-            <button type="submit" name="add" class="btn-add">Add Item</button>
-        </form>
-    </div>
-</div>
+            <input type="hidden" name="item_id" id="issued_id">
 
-<!-- Edit Item Modal -->
-<div id="editModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeEditModal()">&times;</span>
-        <h3>Edit Item</h3>
-        <form method="POST">
-            <input type="hidden" name="item_id" id="edit_id">
-            <select name="store_id" id="edit_store" required>
-                <?php foreach($stores as $store): ?>
-                    <option value="<?= $store['id'] ?>"><?= htmlspecialchars($store['name']) ?></option>
-                <?php endforeach; ?>
-            </select>
-            <input type="text" name="name" id="edit_name" placeholder="Item Name" required>
-            <input type="text" name="description" id="edit_description" placeholder="Description">
-            <input type="number" name="price" id="edit_price" step="0.01" required>
-            <input type="number" name="stock" id="edit_stock" required>
-            <select name="status" id="edit_status">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-            </select>
-            <button type="submit" name="update" class="btn-add">Save</button>
+            <label>Store</label>
+            <input type="text" id="issued_store" readonly>
+
+            <label>Name</label>
+            <input type="text" id="issued_name" readonly>
+
+            <label>Price</label>
+            <input type="text" id="issued_price" readonly>
+
+            <label>Stock</label>
+            <input type="text" id="issued_stock" readonly>
+
+            <label>Issued</label>
+            <input type="number" name="issued" id="issued_value" min="0" required>
+
+            <button type="submit" name="update_issued" class="btn-add">Save</button>
         </form>
     </div>
 </div>
 
 <script>
-function openAddModal(){ document.getElementById('addModal').style.display='flex'; }
-function closeAddModal(){ document.getElementById('addModal').style.display='none'; }
-
-function openEditModal(id,store_id,name,desc,price,stock,status){
-    document.getElementById('edit_id').value=id;
-    document.getElementById('edit_store').value=store_id;
-    document.getElementById('edit_name').value=name;
-    document.getElementById('edit_description').value=desc;
-    document.getElementById('edit_price').value=price;
-    document.getElementById('edit_stock').value=stock;
-    document.getElementById('edit_status').value=status;
-    document.getElementById('editModal').style.display='flex';
+function openIssuedModal(id,store,name,price,stock,issued){
+    document.getElementById('issued_id').value=id;
+    document.getElementById('issued_store').value=store;
+    document.getElementById('issued_name').value=name;
+    document.getElementById('issued_price').value=price;
+    document.getElementById('issued_stock').value=stock;
+    document.getElementById('issued_value').value=issued;
+    document.getElementById('issuedModal').style.display='flex';
 }
-function closeEditModal(){ document.getElementById('editModal').style.display='none'; }
+function closeIssuedModal(){ document.getElementById('issuedModal').style.display='none'; }
 
 window.onclick=function(e){
-    if(e.target==document.getElementById('addModal')) closeAddModal();
-    if(e.target==document.getElementById('editModal')) closeEditModal();
+    if(e.target==document.getElementById('issuedModal')) closeIssuedModal();
 }
 
 const toggle = document.querySelector('.toggle');
