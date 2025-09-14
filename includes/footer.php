@@ -104,8 +104,6 @@
 
                         <li><a href="/cafora_coffee_php/product.php">Shop</a></li>
 
-                        <li><a href="/cafora_coffee_php/gallery.php">Gallery</a></li>
-
                     </ul>
 
                 </div>
