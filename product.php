@@ -15,6 +15,7 @@ session_start();
 <body>
 
      <section class="hero-section">
+        
 
          <!-- Hero video background -->
         <video class="hero-video" autoplay muted loop playsinline>
