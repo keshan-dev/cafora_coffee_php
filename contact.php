@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require 'includes/database_connection.php';
 
 $flash = "";
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
 <!-- Fixed Header -->
-<header class="site-header">
+<!-- <header class="site-header">
   <div class="nav-container">
     <div class="logo"><a href="/cafora_coffee_php/index.php">Cafora</a></div>
     <nav class="nav-links">
@@ -61,14 +61,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <a href="/cafora_coffee_php/login.php">LOGIN</a>
     </nav>
   </div>
-</header>
+</header> -->
+<?php include 'includes/navbar.php'; ?>
 
 <!-- Hero Cover -->
 <section class="hero-section">
   <img src="assets/images/banner.jpg" alt="Cover">
-  <div class="hero-content">
-    <h1>Contact Us</h1>
-  </div>
+  
 </section>
 
 <div class="contact-wrap">
@@ -76,10 +75,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- Info -->
     <aside class="info-card">
       <small>LET’S TALK</small>
-      <h2>Speak With Expert Engineers.</h2>
-      <div class="info-item"><strong>Email:</strong><br>info@gsit.com.au</div>
-      <div class="info-item"><strong>Phone:</strong><br>AU: +61 (02) 844 302 41<br>LK: +94 11 2820206</div>
-      <div class="info-item"><strong>Address:</strong><br>17/3, Sarasavi Mawatha,<br>Kalubowila, Colombo, Sri Lanka.</div>
+      <h2>If you are satisfied, please let others know. If you are dissatisfied, please share your valuable feedback with us.</h2>
+      
     </aside>
 
     <!-- Form -->
@@ -100,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           <input class="input" type="text" name="website" placeholder="Your Website">
         </div>
         <input class="input" type="text" name="subject" placeholder="Subject" required>
-        <textarea class="textarea" name="message" placeholder="Your Message Here" required></textarea>
+        <textarea class="textarea" name="message" placeholder="Your Message Here" required></textarea><br>
         <button class="btn" type="submit">Submit Now</button>
       </form>
     </section>
