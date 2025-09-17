@@ -1,0 +1,335 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F1F0EE;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    color: #2c1810;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.section-description {
+    color: #6b5d52;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+/* Filter buttons */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #e8e8e8;
+    color: #6b6b6b;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background-color: #d0d0d0;
+}
+
+.filter-btn.active {
+    background-color: #2A0000;
+    color: white;
+}
+
+/* Product grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 24px;
+}
+
+.product-name {
+    color: #2d2d2d;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.product-description {
+    color: #6b6b6b;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-weight: 600;
+    color: #2d2d2d;
+}
+
+.add-btn {
+    background-color: #2A0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-btn:hover {
+    background-color: #330000;
+}
+
+.show-more-btn {
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    border: 2px solid #2A0000;
+    color: #2A0000;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+    background-color: #2A0000;
+    color: white;
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.product-image-container {
+    position: relative;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #6b6b6b;
+    font-size: 1.2rem;
+}
+
+.error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row for tablets */
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fs-43 {
+        font-size: 2rem !important;
+    }
+    
+    .container {
+        padding: 40px 15px;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr; /* 1 per row on mobile */
+        gap: 20px;
+    }
+    
+    .filter-container {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Basic Reset and Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Hero Section Container */
+.hero-section {
+    position: relative; 
+    height: 500px;      
+    width: 100%;
+    overflow: hidden;  
+    display: flex;     
+    justify-content: center;
+    align-items: center;
+    color: #fff;       
+    text-align: center;
+}
+
+
+/* This darkens the video, making the white text more readable. */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+
+/* Background Video Styling */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 500px;  /* adjust height */
+    object-fit: cover; /* keeps proportions */
+    z-index: 0;
+}
+
+/* Content Container Styling */
+.hero-content {
+    position: relative; 
+    z-index: 2;         
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; 
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Call-to-Action Button Styling */
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #2A0000; 
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #4b0101; 
+    transform: translateY(-2px); 
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #30261C;
+    border-top: 1px solid #E5E7EB;
+    margin-top: 4rem;
+    padding: 3rem 0 0 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #ffffff;
+    border-top: 1px solid #E5E7EB;
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    font-size: 0.875rem;
+}
