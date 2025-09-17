@@ -73,7 +73,7 @@ Make sure you have the following installed:
 1. *Clone the repository*  
    ```bash
    git clone https://github.com/keshan-dev/cafora_coffee_php.git
-   
+
 2.Move into your server root directory
 
 For XAMPP: htdocs/
@@ -88,3 +88,16 @@ Import sql/cafora.sql.
 
 Start Apache & MySQL in your local server.
 Visit: http://localhost/cafora-coffee   
+
+🔑 Default Admin Credentials
+
+Email: admin@coffee.com
+Password: 0000
+
+🔑 Default User Credentials
+
+Email: user@coffee.com
+Password: 0000
+
+
+⚠ Important: Change the default credentials in the database immediately after installation.
