@@ -51,16 +51,18 @@ cafora-coffee/
 │ │-- auth.php # Authentication & access control
 │ │-- database_connection.php# Database connection (PDO)
 │
-│-- public/ # User-facing files
+│--
 │ │-- index.php # Homepage
 │ │-- products.php # Coffee product catalog
 │ │-- contact.php # Contact form
 │
-│-- sql/ # Database scripts
+│-- assets/sql
+|   # Database scripts
 │ │-- cafora.sql
 │
 │-- style.css # Global styles
 │-- README.md # Project documentation
+
 ## ⚙ Installation & Setup  
 
 ### 🔧 Prerequisites  
@@ -101,3 +103,10 @@ Password: 0000
 
 
 ⚠ Important: Change the default credentials in the database immediately after installation.
+
+## 📌 Future Roadmap
+
+ Integrate online payments (Stripe / PayPal).
+
+ Build REST API for mobile app integration.
+
