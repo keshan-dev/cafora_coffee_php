@@ -11,3 +11,10 @@ The system is built to provide:
 This project was developed as part of academic and professional practice, focusing on *modern UI/UX, **security best practices, and **clean code principles*.  
 
 ---
+## ✨ Key Features  
+
+### 👥 User-Side (Frontend)
+- 📦 *Product Catalog* – Browse coffee varieties with names, descriptions, prices, and availability.  
+- 🔎 *Search & Filter* (planned) – Find coffee by category, type, or price range.  
+- 📱 *Responsive Design* – Works seamlessly on desktop, tablet, and mobile.  
+- 📝 *Contact Form* – Customers can reach out for inquiries or feedback.
