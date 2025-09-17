@@ -37,3 +37,27 @@ This project was developed as part of academic and professional practice, focusi
 | *Server*   | Apache (XAMPP/WAMP/LAMP stack) |
 
 ---
+## 📂 Project Structure 
+
+cafora-coffee/
+│-- admin/ # Admin dashboard & management files
+│ │-- admin_dashboard.php
+│ │-- products.php
+│ │-- messages.php
+│
+│-- assets/ # Images, icons, fonts, and static files
+│
+│-- includes/ # Reusable PHP includes
+│ │-- auth.php # Authentication & access control
+│ │-- database_connection.php# Database connection (PDO)
+│
+│-- public/ # User-facing files
+│ │-- index.php # Homepage
+│ │-- products.php # Coffee product catalog
+│ │-- contact.php # Contact form
+│
+│-- sql/ # Database scripts
+│ │-- cafora.sql
+│
+│-- style.css # Global styles
+│-- README.md # Project documentation
