@@ -1,1 +1,0 @@
-<!-- gallery page with photoes -->
