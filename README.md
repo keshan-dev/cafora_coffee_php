@@ -61,3 +61,15 @@ cafora-coffee/
 │
 │-- style.css # Global styles
 │-- README.md # Project documentation
+## ⚙ Installation & Setup  
+
+### 🔧 Prerequisites  
+Make sure you have the following installed:  
+- [XAMPP / WAMP / LAMP](https://www.apachefriends.org/) (Apache + MySQL + PHP 8.x)  
+- Git  
+
+### 🚀 Steps to Run Locally  
+
+1. *Clone the repository*  
+   ```bash
+   git clone https://github.com/keshan-dev/cafora_coffee_php.git
