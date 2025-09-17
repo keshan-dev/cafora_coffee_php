@@ -1,5 +1,5 @@
 <?php
-$requiredRole = "admin"; // only admins can access
+$requiredRole = "admin"; 
 require '../includes/auth.php';
 require '../includes/database_connection.php';
 
@@ -103,7 +103,7 @@ try {
 <script>
 const toggle = document.querySelector('.toggle');
 const container = document.querySelector('.container');
-toggle.addEventListener('click',()=>{ container.classList.toggle('sidebar-open'); });
+    toggle.addEventListener('click',()=>{ container.classList.toggle('sidebar-open'); });
 
 function openModal(id){ document.getElementById(id).style.display="flex"; }
 function closeModal(id){ document.getElementById(id).style.display="none"; }

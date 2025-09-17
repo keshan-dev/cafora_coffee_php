@@ -1,5 +1,5 @@
 <?php
-$requiredRole = "admin";   // only admins can view this
+$requiredRole = "admin";  
 require '../includes/auth.php';
 require '../includes/database_connection.php';
 ?>
@@ -40,7 +40,7 @@ $recentOrders = $pdo->query("
     LIMIT 5
 ")->fetchAll(PDO::FETCH_ASSOC);
 
-// ===== Charts Data =====
+
 // Order Category Distribution
 $categoryData = $pdo->query("
     SELECT category, COUNT(*) as count

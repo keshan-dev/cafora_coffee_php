@@ -8,7 +8,7 @@ if (isset($_POST['update_issued'])) {
     $id     = $_POST['item_id'];
     $issued = (int) $_POST['issued'];
 
-    // make sure issued is not negative
+    
     if ($issued >= 0) {
         $stmt = $pdo->prepare("UPDATE store_items SET issued=? WHERE id=?");
         $stmt->execute([$issued, $id]);

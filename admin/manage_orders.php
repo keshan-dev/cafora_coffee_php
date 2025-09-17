@@ -1,5 +1,5 @@
 <?php
-$requiredRole = "admin";   // only admins can view this
+$requiredRole = "admin";  
 require '../includes/auth.php';
 require '../includes/database_connection.php';
 
