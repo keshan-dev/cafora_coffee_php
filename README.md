@@ -27,3 +27,13 @@ This project was developed as part of academic and professional practice, focusi
 - 📬 *Message Management* – View and delete customer contact messages.  
 
 ---
+## 🏗 Tech Stack  
+
+| Layer       | Technology Used |
+|-------------|-----------------|
+| *Frontend* | HTML5, CSS3, JavaScript (Vanilla), Google Fonts, Ionicons |
+| *Backend*  | PHP (Procedural with PDO for DB interactions) |
+| *Database* | MySQL (Structured schema with relational integrity) |
+| *Server*   | Apache (XAMPP/WAMP/LAMP stack) |
+
+---
