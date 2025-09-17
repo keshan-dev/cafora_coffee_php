@@ -18,3 +18,12 @@ This project was developed as part of academic and professional practice, focusi
 - 🔎 *Search & Filter* (planned) – Find coffee by category, type, or price range.  
 - 📱 *Responsive Design* – Works seamlessly on desktop, tablet, and mobile.  
 - 📝 *Contact Form* – Customers can reach out for inquiries or feedback.
+
+### 🔐 Admin-Side (Backend)
+- 🛠 *Admin Authentication* – Secure login system with role-based access.  
+- 📊 *Dashboard Overview* – Quick stats of stock, issued products, and messages.  
+- 🧾 *Product Management* – Add, edit, or delete coffee products.  
+- 📦 *Stock & Issued Tracking* – Manage inventory without auto-deducting stock.  
+- 📬 *Message Management* – View and delete customer contact messages.  
+
+---
