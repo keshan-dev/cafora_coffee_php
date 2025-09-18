@@ -70,3 +70,4 @@ session_start();
     <script src="/cafora_coffee_php/assets/js/product.js"></script>
 </body>
 </html>
+
